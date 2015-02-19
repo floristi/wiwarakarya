@@ -8,16 +8,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 	<head>
 		<title>Wiwara Karya</title>
-		
+
 		<link href="<?php echo base_url();?>resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 		<link href="<?php echo base_url();?>resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	
+
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<!-- Core CSS File. The CSS code needed to make eventCalendar works -->
 		<link rel="stylesheet" href="<?php echo base_url();?>resources/css/eventCalendar.css">
@@ -27,13 +27,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<script src="<?php echo base_url();?>resources/js/jquery-1.10.2.js"></script>
 		<script src="<?php echo base_url();?>resources/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>resources/js/easing.js"></script>
-		
+
 		<link rel="stylesheet" href="<?php echo base_url();?>resources/css/flexslider.css" type="text/css" media="screen" />
 		<link href="<?php echo base_url();?>resources/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="<?php echo base_url();?>resources/css/form.css" rel="stylesheet" type="text/css" media="all" />
 		<script type="text/javascript" src="<?php echo base_url();?>resources/js/megamenu.js"></script>
 		<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-		
+
 		<script src="<?php echo base_url();?>resources/js/menu_jquery.js"></script>
 		<script src="<?php echo base_url();?>resources/js/jquery.easydropdown.js"></script>
 		<script src="<?php echo base_url();?>resources/js/jquery.etalage.min.js"></script>
@@ -61,22 +61,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="top_bg">
 				<div class="container">
 					<div class="header_top">
-						<div class="logo">
-							<a href="index.html"><h4 style="color:red;">Logo</h4></a>
-						</div>
+                                        <div id="logo">
+		<img src='<?php echo base_url()?>\resources\images\wiwarazoom.png' alt="Makara" width="100" height="100">
+	</div>
+
 						<div class="social-icons">
 								<i class="facebook"></i>
 								<i class="twitter"></i>
 								<i class="googlepluse"></i>
 							</div>
 						<div class="top_right">
-							
+
 							<ul>
 								<li><a href="<?php echo site_url('navigation/registration');?>">Create Account </a></li>|
-								
+
 								<li class="login" >
 											<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
-												<div id="loginBox">                
+												<div id="loginBox">
 													<form id="loginForm">
 															<fieldset id="body">
 																<fieldset>
@@ -96,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									  </div>
 								</li>
 							</ul>
-							
+
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -122,8 +123,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												<li><a href="women.html">sports</a></li>
 												<li><a href="women.html">brands</a></li>
 												<li><a href="women.html">collections</a></li>
-											</ul>	
-										</div>							
+											</ul>
+										</div>
 									</div>
 									<div class="col1">
 										<div class="h_nav">
@@ -135,8 +136,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												<li><a href="women.html">accessories</a></li>
 												<li><a href="women.html">kids</a></li>
 												<li><a href="women.html">style videos</a></li>
-											</ul>	
-										</div>							
+											</ul>
+										</div>
 									</div>
 									<div class="col1">
 										<div class="h_nav">
@@ -148,8 +149,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												<li><a href="women.html">accessories</a></li>
 												<li><a href="women.html">kids</a></li>
 												<li><a href="women.html">style videos</a></li>
-											</ul>	
-										</div>												
+											</ul>
+										</div>
 									</div>
 									<div class="col1">
 										<div class="h_nav">
@@ -161,8 +162,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												<li><a href="women.html">my shopping bag</a></li>
 												<li><a href="women.html">brands</a></li>
 												<li><a href="women.html">create wishlist</a></li>
-											</ul>	
-										</div>						
+											</ul>
+										</div>
 									</div>
 									<div class="col1">
 										<div class="h_nav">
@@ -174,7 +175,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												<li><a href="women.html">accessories</a></li>
 												<li><a href="women.html">kids</a></li>
 												<li><a href="women.html">style videos</a></li>
-											</ul>	
+											</ul>
 										</div>
 									</div>
 									<div class="col1">
@@ -187,7 +188,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												<li><a href="women.html">sports</a></li>
 												<li><a href="women.html">brands</a></li>
 												<li><a href="women.html">collections</a></li>
-											</ul>	
+											</ul>
 										</div>
 									</div>
 								</div>
@@ -200,16 +201,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								</div>-->
 							</li>
-							<li><a class="color4" href="<?php echo site_url('navigation/event');?>">Events</a></li>				
+							<li><a class="color4" href="<?php echo site_url('navigation/event');?>">Events</a></li>
 							<li><a class="color5" href="<?php echo site_url('navigation/payment');?>">Payment</a></li>
 							<li><a class="color6" href="<?php echo site_url('navigation/gallery');?>">Gallery</a></li>
 							<li><a class="color7" href="<?php echo site_url('navigation/about_us');?>">About Us</a></li>
 							<li class="pull-right"><a class="color8" href="<?php echo site_url('navigation/find_job');?>">Find a Job</a></li>
 							<div class="clearfix"> </div>
-							
-					</ul> 
+
+					</ul>
 				</div>
-			</div>	
+			</div>
 		</div>
 		<!-- script-for-nav -->
 		<script>
