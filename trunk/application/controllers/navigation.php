@@ -56,7 +56,7 @@ class Navigation extends CI_Controller {
 	
 	public function registration()
 	{
-		$this->load->view('registration/registration_view');
+		$this->load->view('user/registration');
 	}
 }
 
