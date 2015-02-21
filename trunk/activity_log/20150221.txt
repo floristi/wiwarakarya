@@ -1,0 +1,5 @@
+TODO 21 Feb:
+1. Fix view register user
+2. Create user create controller
+3. Create user list view
+4. Create user registration confirmation
