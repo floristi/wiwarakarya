@@ -7,11 +7,14 @@ class M_company extends CI_Model {
         $this->load->database();
     }
 
+    function get_data_company($id) {
+        return  $this->db->get_where('wiwarakarya.companies', array('id' => $id))->row();
+    }
+
     function insert_company(){
         $name = $this->input->post('name');
-        $city = $this->input->post('city');
-
-        $cek = $this->db->where('name', $name)->where('city', $city)->get('wiwarakarya.companies')->num_rows();
+       
+        $cek = $this->db->where('name', $name)->get('wiwarakarya.companies')->num_rows();
         if($cek > 0) {
             $confirm = "Name <b>". $name . "</b> already exsist!";
             $this->session->set_userdata('notification', $confirm);
@@ -63,6 +66,81 @@ class M_company extends CI_Model {
         return $query->result();
     }
     
+    function update_data_company($id){
+        $name = ucwords($this->input->post('name'));
+        $address =  ucfirst($this->input->post('address'));
+        $city = ucwords($this->input->post('city'));
+        $phone = $this->input->post('phone');
+        $contact_name = ucwords($this->input->post('contact_name'));
+        $description = $this->input->post('description');
+        $web = $this->input->post('web');
+        $email = $this->input->post('email');
+        
+        $this->db->where('id', $id);
+        //$this->db->where('kota', $kota);
+        $idcompany = $this->db->get('wiwarakarya.companies');
+
+        if ($idcompany->num_rows() <= 0) {
+            $confirm = "Company <b>". $name. "</b> tidak ada dalam database supplier";
+            $this->session->set_userdata('notification', $confirm);
+            return;
+        }
+        
+        $data = array(
+            'name' => $name,
+            'address' => $address,
+            'city' => $city,
+            'phone' => $no_telp,
+            'contact_name' => $contact_person,
+            'description' => $description,
+            'web' => $web,
+            'email' => $email,
+            'status' => 'TRUE',
+            
+        );
+
+        //$id = $idsupplier->row()->id;
+        $this->db->where('id', $id);
+        $this->db->update('wiwarakarya.companies', $data);
+
+        $confirm = "Data <b>".  $nama ."</b> berhasil di-update";
+        $this->session->set_userdata('notification', $confirm);
+        return;
+    }
+
+
+    function delete_company($id){
+
+        $name = $this->input->post('name');
+        $city = $this->input->post('city');
+        $stat = array('status' => 'false');
+        $this->db->where('id', $id);
+        $this->db->update('wiwarakarya.companies', $stat);
+        
+        $confirm = "Company <b>". $name. "</b> telah berhasil di non-aktifkan";
+        $this->session->set_userdata('notification', $confirm);
+        return;
+    }
+
+    function company_activation($id) {
+        $name = $this->input->post('name');
+        $city = $this->input->post('city');
+        $stat = array('status' => 'true');
+        
+        $this->db->where('id', $id);
+        $this->db->update('wiwarakarya.companies', $stat);
+
+        $confirm = "Company <b>". $nama. "</b> telah berhasil diaktifkan";
+        $this->session->set_userdata('notification', $confirm);
+        return;
+    }
+
+    /** count()
+    */
+    // function company_count() {
+    //     $this->db->from('wiwarakarya.companies');
+    //     return $this->db->count_all_results();
+    // }
     
 
 }
