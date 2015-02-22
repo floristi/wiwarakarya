@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	class User extends CI_Controller {
+	class c_user extends CI_Controller {
 		public function __construct() {
 			parent::__construct();
 			$this->load->library('session');
@@ -8,7 +8,7 @@
 		}
 
 		public function index() {
-			list();
+			$this->load->view('welcome_message');
 		}
 
 		function list() {
