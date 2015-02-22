@@ -21,7 +21,7 @@
 					foreach ($query as $row) {
 						echo "<tr>";
 						$id = $row->id; 
-						echo "<td>". "<a href='#". $id. "' data-toggle=\"modal\">". $row->name ."</a>". "</td>";
+						echo "<td>". "<a href='". site_url('c_company/data_company/'.$id) . "' data-toggle=\"modal\">". $row->name ."</a>". "</td>";
 						
 						echo "<td>". $row->address . "</td>";
 						echo "<td>". $row->email . "</td>";
@@ -40,7 +40,7 @@
 							<div class=\"modal-header\">
 								<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>
 								<i class=\"icon-edit\"></i>
-								<h2>Nama Supplier : ".$row->name."</h2>
+								<h2>Company : ".$row->name."</h2>
 							</div>
 
 							<div class=\"modal-body\">
@@ -66,7 +66,7 @@
 							</div>
 
 							<div class=\"modal-footer\">
-								<a href='".site_url('c_supplier/data_supplier/'.$id)."'><button class=\"btn btn-primary\" name=\"edit-supplier\">Edit Supplier</button></a>
+								<a href='".site_url('c_company/data_company/'.$id)."'><button class=\"btn btn-primary\" name=\"edit-company\">Edit Company</button></a>
 								<button class=\"btn\" data-dismiss=\"modal\" aria-hidden=\"true\">Close</button>
 							</div>
 						</div>";
