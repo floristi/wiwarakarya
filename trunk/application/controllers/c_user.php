@@ -1,33 +1,37 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	class c_user extends CI_Controller {
-		public function __construct() {
-			parent::__construct();
-			$this->load->library('session');
-			$this->load->helper('url');
-			$this->load->model('m_user');
+class C_User extends CI_Controller {
+	public function __construct() {
+		parent::__construct();
+	}
+
+	public function index() {
+		$data['users'] = $this->m_user->get_all_applicants();
+		$this->load->view('user/list', $data);
+	}
+
+	public function create() {
+		if ($this->input->post('submit')) {
+			$user_data = array(
+				'username'       => $this->input->post('username'),
+				'password'       => $this->input->post('password'),
+				'fullname'       => $this->input->post('fullname'),
+				'last_education' => $this->input->post('last_education'),
+				'pob'            => $this->input->post('pob'),
+				'dob'            => $this->input->post('dob-day').$this->input->post('dob-month').$this->input->post('dob-year'),
+				'cv_path'		 => $this->input->post('cv_path'),
+				'status'	     => 1
+			);
+			$this->m_user->insert_applicant($user_data);
+			redirect('c_user');
 		}
 
-		public function index() {
-			$this->load->view('welcome_message');
-		}
+		$this->load->view('user/add_edit');
+	}
 
-		function list() {
-			$config = array();
-			$config["base_url"] = base_url() . "index.php/user/list";
-			$config["total_rows"] = $this->m_user->user_count();
-			$config["per_page"] = 10;
-			$config["uri_segment"] = 3;
-			$this->pagination->initialize($config);
-
-			$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-
-			$isi['query'] = $this->m_user->get_list_user($config["per_page"], $page);
-			$isi['links'] = $this->pagination->create_links();
-			$isi['nama_pengguna'] = $this->m_user->get_list_username();
-			$isi['confirm'] = $this->session->userdata('notification');
-			$this->session->set_userdata('notification', null);
-			$isi['isi'] = 'user/lihat_user';
-			$this->load->view('template/tampilan', $isi);
+	public function edit($id) {
+		if ($id === null) {
+			redirect('c_user');
 		}
 	}
+}
 ?>

@@ -22,8 +22,6 @@ class Navigation extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('session');
-        $this->load->helper('url');
         //$this->load->model();
     }
 
@@ -32,41 +30,6 @@ class Navigation extends CI_Controller
             redirect('welcome');
         }
     } */
-
-    public function index()
-    {
-        $this->load->view('welcome_message');
-    }
-
-    public function info_career()
-    {
-        $this->load->view('info_career/career_view');
-    }
-
-    public function event()
-    {
-        $this->load->view('event/event_view');
-    }
-
-    public function payment()
-    {
-        $this->load->view('payment/payment_view');
-    }
-
-    public function gallery()
-    {
-        $this->load->view('gallery/gallery_view');
-    }
-
-    public function about_us()
-    {
-        $this->load->view('about/about_us_view');
-    }
-
-    public function registration()
-    {
-        $this->load->view('registration/registration_view');
-    }
 
     public function index()
     {
