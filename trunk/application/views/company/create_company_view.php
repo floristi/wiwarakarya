@@ -74,12 +74,12 @@
 
                              
                         <div id="company-container">
-                            <form id="company_registration_form" method="post" action="<?php echo site_url('c_company/input_company'); ?>" >
+                            <?php echo  form_open("c_company/create_company"); ?>
                               <fieldset>
                                 <div>
                                     <label>
                                         Company Name:
-                                        <input placeholder="name" type="text" required autofocus maxlength="50" required value="<?php if(isset($name)) echo $name; ?>">
+                                        <input name="name" placeholder="name" type="text" required autofocus maxlength="50" required value="<?php if(isset($name)) echo $name; ?>">
                                         
                                         
                                     </label>
@@ -89,37 +89,44 @@
                                     <label>
                                         Address:
                                     </label>
-                                    <textarea placeholder="address" class="form-control" required value="<?php if(isset($address)) echo $address; ?>"></textarea>
+                                    <textarea name="address" placeholder="address" class="form-control" required value="<?php if(isset($address)) echo $address; ?>"></textarea>
                                 </div>
                                 <div>
                                     <label>
                                         City:
                                     </label>
-                                    <input placeholder="city" type="text" required autofocus required value="<?php if(isset($city)) echo $city; ?>">
+                                    <input name="city" placeholder="city" type="text" required autofocus required value="<?php if(isset($city)) echo $city; ?>">
                                 </div>
                                 <div>
                                     <label>
                                         Phone Number:
                                     </label>
-                                    <input placeholder="phone number" type="text" required autofocus required value="<?php if(isset($phone)) echo $phone; ?>">
+                                    <input name="phone" placeholder="phone number" type="text" required autofocus required value="<?php if(isset($phone)) echo $phone; ?>">
                                 </div>
                                 <div>
                                     <label>
                                         Contact Name:
                                     </label>
-                                    <input placeholder="contact name" type="text" required autofocus required value="<?php if(isset($contact_name)) echo $contact_name; ?>">
+                                    <input name="contact_name" placeholder="contact name" type="text" required autofocus required value="<?php if(isset($contact_name)) echo $contact_name; ?>">
                                 </div>
                                 <div>
                                     <label>
                                         Description:
                                     </label>
-                                    <textarea class="form-control" placeholder="description" type="text" required autofocus required value="<?php if(isset($description)) echo $description; ?>"></textarea>
+                                    <textarea name="description" placeholder="description" type="text" required autofocus required value="<?php if(isset($description)) echo $description; ?>"></textarea>
+                                </div>
+                                <div>
+                                    <div>
+                                    <label>
+                                        Website:
+                                    </label>
+                                    <input name="website" placeholder="web" type="text" required autofocus required value="<?php if(isset($web)) echo $web; ?>">
                                 </div>
                                 <div>
                                     <label>
                                         Email:
                                     </label>
-                                    <input class="form-control" placeholder="email" type="email" required autofocus required value="<?php if(isset($email)) echo $email; ?>">
+                                    <input name="email" placeholder="email" type="email" required autofocus required value="<?php if(isset($email)) echo $email; ?>">
                                 </div>
                                 <div>
                                     <label>
@@ -133,7 +140,7 @@
                                     <a href="<?php echo site_url('c_company'); ?>"><input class="btn btn-danger" type="button" value="Batal" name="batal" onclick="return confirm Action('Apakah anda yakin tidak ingin menambahkan company baru?');"></a>
                                 </div>
                                 </fieldset>
-                            </form>
+                            <?php echo form_close(); ?>
                         </div>
                     </div>
                 </div>
