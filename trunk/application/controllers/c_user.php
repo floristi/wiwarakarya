@@ -17,9 +17,9 @@ class C_User extends CI_Controller {
 				'fullname'       => $this->input->post('fullname'),
 				'last_education' => $this->input->post('last_education'),
 				'pob'            => $this->input->post('pob'),
-				'dob'            => $this->input->post('dob-day').$this->input->post('dob-month').$this->input->post('dob-year'),
-				'cv_path'		 => $this->input->post('cv_path'),
-				'status'	     => 1
+				'dob'            => $this->input->post('dob-year').'-'.
+									$this->input->post('dob-month').'-'.
+									$this->input->post('dob-date')
 			);
 			$this->m_user->insert_applicant($user_data);
 			redirect('c_user');
@@ -32,6 +32,14 @@ class C_User extends CI_Controller {
 		if ($id === null) {
 			redirect('c_user');
 		}
+	}
+
+	public function delete($id) {
+		if ($id === null) {
+			redirect('c_user');
+		}
+		$this->m_user->delete_applicant($id);	
+		redirect('c_user');
 	}
 }
 ?>
