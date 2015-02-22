@@ -11,7 +11,7 @@ class c_event extends CI_Controller{
 
 	public function index() 
 	{
-		//$this->get_event();
+		$this->load->view('event/event_view');
 	}
 
 
