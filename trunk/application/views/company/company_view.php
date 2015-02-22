@@ -17,7 +17,7 @@
 			<tbody>
 
 				<?php
-					$query = $this->m_company->get_list_company();
+					//$query = $this->m_company->get_list_company();
 					foreach ($query as $row) {
 						echo "<tr>";
 						$id = $row->id; 
