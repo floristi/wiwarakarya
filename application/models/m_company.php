@@ -144,3 +144,5 @@ class M_company extends CI_Model {
     
 
 }
+
+?>
