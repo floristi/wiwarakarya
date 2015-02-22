@@ -61,44 +61,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="top_bg">
 				<div class="container">
 					<div class="header_top">
-                        <div id="logo">
-							<img src='<?php echo base_url()?>\resources\images\wiwarazoom.png' alt="Makara" width="100" height="100">
-						</div>
-
-						<div class="social-icons">
-								<i class="facebook"></i>
-								<i class="twitter"></i>
-								<i class="googlepluse"></i>
+						<div class="row">
+							<div class="col-md-1">
+								<div id="logo">
+									<img src='<?php echo base_url();?>resources/images/1_1.jpg' alt="Makara" width="100" height="100">
+								</div>
 							</div>
-						<div class="top_right">
-							<ul>
-								<li>
-									<a href="<?php echo site_url('c_user/create');?>">Create Account </a>
-								</li>|
-								<li class="login" >
-									<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
-										<div id="loginBox">
-											<form id="loginForm">
-												<fieldset id="body">
-													<fieldset>
-														  <label for="email">Email Address</label>
-														  <input type="text" name="email" id="email">
-													</fieldset>
-													<fieldset>
-															<label for="password">Password</label>
-															<input type="password" name="password" id="password">
-													 </fieldset>
-													<input type="submit" id="login" value="Sign in">
-													<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
-												</fieldset>
-												<span><a href="#">Forgot your password?</a></span>
-										 	</form>
-										</div>
+							<div class="col-md-11">
+								<div class="social-icons">
+										<i class="facebook"></i>
+										<i class="twitter"></i>
+										<i class="googlepluse"></i>
 									</div>
-								</li>
-							</ul>
+								
+								<div class="top_right">
+									<ul>
+										<li>
+											<a href="<?php echo site_url('c_user/create');?>">Create Account </a>
+										</li>|
+										<li class="login" >
+											<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+												<div id="loginBox">
+													<form id="loginForm">
+														<fieldset id="body">
+															<fieldset>
+																  <label for="email">Email Address</label>
+																  <input type="text" name="email" id="email">
+															</fieldset>
+															<fieldset>
+																	<label for="password">Password</label>
+																	<input type="password" name="password" id="password">
+															 </fieldset>
+															<input type="submit" id="login" value="Sign in">
+															<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+														</fieldset>
+														<span><a href="#">Forgot your password?</a></span>
+													</form>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
 						</div>
-						<div class="clearfix"> </div>
 					</div>
 				</div>
 			</div>
