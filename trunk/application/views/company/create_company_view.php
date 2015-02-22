@@ -3,8 +3,8 @@
   <div class="container">
         <div class="main">
             <!-- start registration -->
-            <div class="registration_company">
-                <div class="registration_company_left">
+            <div class="registration">
+                <div class="registration_left">
                     <!-- [if IE]
                         < link rel='stylesheet' type='text/css' href='ie.css'/>
                         [endif] -->
