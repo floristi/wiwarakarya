@@ -11,7 +11,7 @@ class m_event extends CI_Model {
         return  $this->db->get_where('wiwarakarya.events', array('id' => $id))->row();
     }
 
-    function insert_events(){
+    function insert_event(){
         $name = $this->input->post('name');
        
         $cek = $this->db->where('name', $name)->get('wiwarakarya.events')->num_rows();
@@ -26,7 +26,7 @@ class m_event extends CI_Model {
         
         if($nama_company != null) {
             $this->db->where('name', $nama_company);
-            $com = $this->db->get('wiwara.company');
+            $com = $this->db->get('wiwarakarya.companies');
             $id_company = $com->row()->id;
             
             if($com->num_rows() <= 0) {
