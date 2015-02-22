@@ -1,16 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class C_Company extends CI_Controller{
 
-	public function __construct() 
-	{
+	public function __construct() {
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->helper(array('url','form'));
 		$this->load->model('m_company');
 	}
 
-	public function index() 
-	{
+	public function index() {
 		$this->get_company();
 	}
 
@@ -58,12 +56,9 @@ class C_Company extends CI_Controller{
 		$this->load->view('company/update_company', $isi);
 	}
 
-	/** activate()
-	*/
 	function activate($id = null) {
 		$this->m_company->company_activation($id);
 		redirect('c_company/get_company');
 	}
-	
 }
 ?>

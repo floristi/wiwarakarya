@@ -52,7 +52,7 @@
                     <div class="registration_form">
                         <h1>Register</h1>
                         <div id="user-container">
-                            <?php echo form_open('c_user/create'); ?>
+                            <?php echo form_open_multipart('c_user/create'); ?>
                                 <div>
                                     <label>
                                         Username:
@@ -134,7 +134,7 @@
                                     <label>
                                         CV:
                                     </label>
-                                    <input type="file" autofocus>
+                                    <input type="file" name="cv[]" enctype="multipart/form-data" autofocus>
                                 </div>
                                 <div class="sky-form">
                                     <label class="checkbox-inline">
@@ -143,7 +143,7 @@
                                     </label>
                                 </div>
                                 <div style="display:inline-block">
-                                    <input type="submit" name="submit" value="create an account" id="register-submit">
+                                    <input type="submit" name="submit" value="create an account" accept=".pdf">
                                 </div>
                                 <div style="display: inline-block">
                                     <a href="<?php echo site_url(); ?>">Cancel</a>

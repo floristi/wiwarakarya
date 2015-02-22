@@ -28,6 +28,7 @@
     			<td>Last Education</td>
     			<td>PoB</td>
     			<td>DoB</td>
+                <td>CV</td>
                 <td>Action</td>
     		</tr>
             </thead>
@@ -40,7 +41,14 @@
     			<td><?php echo $user->last_education; ?> </td>
     			<td><?php echo $user->pob; ?> </td>
     			<td><?php echo $user->dob; ?> </td>
-                <td><a href="<?php echo site_url('c_user/update/'.$user->id); ?>">Edit</a><a style="margin-left:10px">Delete</a></td>
+                <td>
+                    <?php if ($user->cv_path) : ?>
+                        <a>download CV</a>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <a href="<?php echo site_url('c_user/update/'.$user->id); ?>">Edit</a>
+                    <a href="<?php echo site_url('c_user/delete/'.$user->id); ?>" style="margin-left:10px">Delete</a></td>
             </tr>
     		<?php $i++; endforeach; ?>
     	</table>

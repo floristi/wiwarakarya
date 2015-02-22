@@ -114,13 +114,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="head-nav">
 					<span class="menu"> </span>
 					<ul class="megamenu skyblue">
-							<li><a class="color1" href="<?php echo site_url('navigation');?>">Home</a></li>
-							<li><a class="color4" href="<?php echo site_url('c_user');?>">Users</a></li>
+							<li><a class="color2" href="<?php echo site_url('navigation');?>">Home</a></li>
+							<li><a class="color2" href="<?php echo site_url('c_user');?>">Users</a></li>
+							<li><a class="color2" href="<?php echo site_url('c_company');?>">Companies</a></li>
 							<li><a class="color2" href="<?php echo site_url('navigation/info_career');?>">Info Careers</a></li>
-							<li><a class="color4" href="<?php echo site_url('navigation/event');?>">Events</a></li>
-							<li><a class="color4" href="<?php echo site_url('navigation/payment');?>">Payment</a></li>
-							<li><a class="color4" href="<?php echo site_url('navigation/gallery');?>">Gallery</a></li>
-							<li><a class="color4" href="<?php echo site_url('navigation/about_us');?>">About Us</a></li>
+							<li><a class="color2" href="<?php echo site_url('navigation/event');?>">Events</a></li>
+							<li><a class="color2" href="<?php echo site_url('navigation/payment');?>">Payment</a></li>
+							<li><a class="color2" href="<?php echo site_url('navigation/gallery');?>">Gallery</a></li>
+							<li><a class="color2" href="<?php echo site_url('navigation/about_us');?>">About Us</a></li>
 							<li class="pull-right"><a class="color8" href="<?php echo site_url('navigation/find_job');?>">Find a Job</a></li>
 							<div class="clearfix"> </div>
 
