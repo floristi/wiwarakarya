@@ -13,8 +13,8 @@
 				<div class="item active">
 					<img src="<?php echo base_url();?>resources/images/banner_1.jpg" alt="Banner">
 					<div class="carousel-caption">
-						<h1>Big Title Here</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed malesuada sapien. Nulla aliquam orci nec massa hendrerit tincidunt. Donec in sollicitudin lacus. Curabitur et faucibus nulla. Maecenas sit amet semper libero, in iaculis felis. Aliquam erat volutpat. Donec sollicitudin turpis eget tortor tincidunt euismod.</p>
+						<h1>Kerja Hebat</h1>
+						<p> Nothing ever comes to one, that is worth having, except as a result of hard work. (Booker T. Washington)</p>
 						<a class="show-more" href="#">SHOW ME MORE</a>
 						
 					</div>
@@ -22,8 +22,8 @@
 				<div class="item">
 					<img src="<?php echo base_url();?>resources/images/banner.jpg" alt="Banner">
 					<div class="carousel-caption">
-						<h1>Big Title Here</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed malesuada sapien. Nulla aliquam orci nec massa hendrerit tincidunt. Donec in sollicitudin lacus. Curabitur et faucibus nulla. Maecenas sit amet semper libero, in iaculis felis. Aliquam erat volutpat. Donec sollicitudin turpis eget tortor tincidunt euismod.</p>
+						<h1>Kerja Hebat</h1>
+						<p> The healthiest competition occurs when average people win by putting above average effort. (Colin Powell)</p>
 						<a class="show-more" href="#">SHOW ME MORE</a>
 						
 					</div>
