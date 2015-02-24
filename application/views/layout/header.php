@@ -64,7 +64,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="row">
 							<div class="col-md-1">
 								<div id="logo">
-									<img src='<?php echo base_url();?>resources/images/1_1.jpg' alt="Makara" width="100" height="100">
+									<img src='<?php echo base_url();?>resources/images/kerjahebat.png' alt="Logo" width="250" height="100">
 								</div>
 							</div>
 							<div class="col-md-11">
