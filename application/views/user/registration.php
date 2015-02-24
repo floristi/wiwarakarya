@@ -1,4 +1,3 @@
-<?php $this->load->view('layout/header'); ?>
     <div class="container">
         <div class="main">
             <!-- start registration -->
@@ -225,4 +224,3 @@
             <!-- end registration -->
         </div>
     </div>
-<?php $this->load->view('layout/footer'); ?>

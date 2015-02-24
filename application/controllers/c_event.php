@@ -11,17 +11,18 @@ class c_event extends CI_Controller{
 
 	public function index() 
 	{
-		$this->load->view('event/event_view');
+		$data['main_content'] = 'event/event_view';
+		$this->load->view('layout/template', $data);
 	}
 
 
 	function create_event() {
-		$isi['isi'] = 'event/create_event_view';
 		if ($this->input->post('submit')) {
 			$this->m_event->insert_event();
 			redirect('c_event');
 		}
-		$this->load->view('event/create_event_view', $isi);
+		$isi['main_content'] = 'event/create_event_view';
+		$this->load->view('layout/template', $isi);
 	}
 }
 ?>

@@ -1,4 +1,3 @@
-<?php $this->load->view('layout/header'); ?>
 <div class="container">
     <div class="main">
     	<h1>List Users</h1>
@@ -54,4 +53,3 @@
     	</table>
     </div>
 </div>
-<?php $this->load->view('layout/footer'); ?>

@@ -6,7 +6,8 @@ class C_User extends CI_Controller {
 
 	public function index() {
 		$data['users'] = $this->m_user->get_all_applicants();
-		$this->load->view('user/list', $data);
+		$data['main_content'] = 'user/list';
+		$this->load->view('layout/template', $data);
 	}
 
 	public function create() {
@@ -25,7 +26,8 @@ class C_User extends CI_Controller {
 			redirect('c_user');
 		}
 
-		$this->load->view('user/add_edit');
+		$data['main_content'] = 'user/add_edit';
+		$this->load->view('layout/template', $data);
 	}
 
 	public function edit($id) {
