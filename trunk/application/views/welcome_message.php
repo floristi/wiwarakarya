@@ -14,7 +14,7 @@
 					<img src="<?php echo base_url();?>resources/images/banner_1.jpg" alt="Banner">
 					<div class="carousel-caption">
 						<h1>Kerja Hebat</h1>
-						<p> Nothing ever comes to one, that is worth having, except as a result of hard work. (Booker T. Washington)</p>
+						<p> Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.(H. Jackson Brown Jr.) </p>
 						<a class="show-more" href="#">SHOW ME MORE</a>
 						
 					</div>
@@ -23,7 +23,7 @@
 					<img src="<?php echo base_url();?>resources/images/banner.jpg" alt="Banner">
 					<div class="carousel-caption">
 						<h1>Kerja Hebat</h1>
-						<p> The healthiest competition occurs when average people win by putting above average effort. (Colin Powell)</p>
+						<p> Keep your dreams alive. Understand to achieve anything requires faith and belief in yourself, vision, hard work, determination, and dedication. Remember all things are possible for those who believe. (Gail Devers) </p>
 						<a class="show-more" href="#">SHOW ME MORE</a>
 						
 					</div>
