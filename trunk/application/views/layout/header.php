@@ -76,13 +76,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								
 								<div class="top_right">
 									<ul>
+										<?php
+											$logged = $this->session->userdata('logged_in');
+											
+												if ($logged != 1)
+												{
+											?>
 										<li>
 											<a href="<?php echo site_url('c_user/create');?>">Create Account </a>
 										</li>|
+										
 										<li class="login" >
+											
 											<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
 												<div id="loginBox">
-													<form id="loginForm">
+													<form id="loginForm" method="post" action="<?php echo site_url('c_login/process')?>">
 														<fieldset id="body">
 															<fieldset>
 																  <label for="email">Email Address</label>
@@ -92,14 +100,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 																	<label for="password">Password</label>
 																	<input type="password" name="password" id="password">
 															 </fieldset>
-															<input type="submit" id="login" value="Sign in">
-															<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+															<input type="submit" name="submit" id="login" value="Sign in">
+															<label for="checkbox"><input type="checkbox" name="remember" id="checkbox" value="1"> <i>Remember me</i></label>
 														</fieldset>
 														<span><a href="#">Forgot your password?</a></span>
 													</form>
 												</div>
 											</div>
 										</li>
+											<?php
+												}
+												else
+												{
+											?>
+										<li class="login" >
+											
+											<div id="logoutContainer"><a href="<?php echo site_url('c_login/logout');?>" id="logoutButton"><span>Logout</span></a>
+										</li>
+											<?php
+												}										
+											?>
 									</ul>
 								</div>
 								<div class="clearfix"> </div>

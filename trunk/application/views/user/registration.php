@@ -129,7 +129,7 @@
                                 </div>
                                 <div>
                                     <label>
-                                        CV:
+                                        Upload Your CV:
                                     </label>
                                     <input type="file" required autofocus>
                                 </div>
