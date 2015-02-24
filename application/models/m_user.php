@@ -57,6 +57,32 @@ class M_User extends CI_Model {
 
         $this->db->trans_complete();
     }
+	
+	function login($username, $password){
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->where('username', $username);
+		$this->db->where('password', $password);
+		$query = $this->db->get();
+		
+		$hasil = $query->result();
+		
+		$id_applicant = 0;
+		
+		foreach($hasil as $row){
+			$id_applicant = $row->applicant_id;
+			
+		}
+		
+		
+		
+		$this->db->select('*');
+		$this->db->from('applicants');
+		$this->db->where('id', $id_applicant);
+		$query_app = $this->db->get();
+		
+		return $query_app->result();
+	}
 
 }
 

@@ -105,6 +105,21 @@ body a{
   display:block;
   padding:4px 10px;
 }
+
+/* Logout */
+#logoutContainer {
+    position:relative;
+}
+#logoutContainer a span{
+  display:block;
+  padding:4px 10px;
+}
+#logoutButton { 
+    display:inline-block;  
+    position:relative;
+    z-index:30;
+    cursor:pointer;
+}
 /* Login Button */
 #loginButton { 
     display:inline-block;  
@@ -281,7 +296,7 @@ padding: 5em 0em;
 	display: block;
 }
 .registration_form div{
-	padding:10px 0;
+	padding:0 0;
 }
 .sky_form1{
 	margin-bottom: -30px;
@@ -334,6 +349,25 @@ label {
 	margin-bottom: 5px;
 }
 
+.registration_form .btns{
+	-webkit-appearance: none;
+	font-family: 'Open Sans', sans-serif;
+	color: #ffffff;
+	text-transform: capitalize;
+	display: inline-block;
+	background:#5d4000;
+	padding: 10px 20px;
+	transition: 0.5s ease;
+	-moz-transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+	cursor:pointer;
+	border:none;
+	outline:none;
+	font-size:1em;
+	margin-bottom: 5px;
+}
+
 .registration_form textarea{
 	-webkit-appearance: none;
 	font-family: 'Open Sans', sans-serif;
@@ -355,8 +389,14 @@ label {
 
 .registration_form input[type="submit"]:hover{
 	color: #ffffff;
+	background:#241ced;
+}
+
+.registration_form  .btns:hover{
+	color: #ffffff;
 	background:#ed1c24;
 }
+
 .terms{
 	text-decoration:underline;
 	text-transform:uppercase;
@@ -2923,4 +2963,25 @@ ul.product li.product_desc h4 a {
 	padding: 10px;
 	background-color:rgba(0, 0, 0, 0.5);
 	border-radius: 10px;
+}
+
+.form-select{
+	width: 40%;
+}
+
+.tahun{
+	width: 120px;
+	display: inline;
+}
+.bulan{
+	width: 200px;
+	display: inline;
+}
+.tanggal{
+	width: 60px;
+	display: inline;
+}
+
+.form-horizontal .control-label{
+	text-align: left;
 }

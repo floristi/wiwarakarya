@@ -2,7 +2,7 @@
         <div class="main">
             <!-- start registration -->
             <div class="registration">
-                <div class="registration_left">
+                <div >
                     <!-- [if IE]
                         < link rel='stylesheet' type='text/css' href='ie.css'/>
                         [endif] -->
@@ -51,102 +51,126 @@
                     <div class="registration_form">
                         <h1>Register</h1>
                         <div id="user-container">
-                            <?php echo form_open_multipart('c_user/create'); ?>
-                                <div>
-                                    <label>
+                            <?php 
+									$attributes = array('class' => 'form-horizontal');
+									echo form_open_multipart('c_user/create', $attributes); 
+								?>
+							
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Username:
-                                        <input placeholder="username" type="text" name="username" required autofocus>
                                     </label>
+									<div class="col-sm-10">
+										<input placeholder="username" class="form-control" type="text" name="username" required autofocus>
+									</div>
                                 </div>
-                                <div>
-                                    <label>
-                                        Password:
-                                        <input placeholder="password" type="password" name="password" required autofocus>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        Password:                                        
                                     </label>
+									<div class="col-sm-10">
+										<input placeholder="password" class="form-control" type="password" name="password" required autofocus>
+									</div>
                                 </div>
-                                <div>
-                                    <label>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Retype Password:
-                                        <input placeholder="retype password" type="password" required autofocus>
+                                       
                                     </label>
+									<div class="col-sm-10">
+										<input placeholder="retype password" class="form-control" type="password" required autofocus>
+									</div>
                                 </div>
-                                <div>
-                                    <label>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Full Name:
-                                        <input placeholder="full name" type="text" name="fullname" required autofocus>
+                                        
                                     </label>
+									<div class="col-sm-10">
+										<input placeholder="full name" type="text" class="form-control" name="fullname" required autofocus>
+									</div>
                                 </div>
-                                <div>
-                                    <label>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Last Education:
                                     </label>
-                                    <select name="last_education">
-                                        <option value="S3">S3</option>
-                                        <option value="S2">S2</option>
-                                        <option value="S1">S1</option>
-                                        <option value="D4">D4</option>
-                                        <option value="D3">D3</option>
-                                        <option value="SMA">SMA/sederajat</option>
-                                        <option value="SMP">SMP/sederajat</option>
-                                        <option value="SD">SD/sederajat</option>
-                                    </select>
+									<div class="col-sm-10">
+										<select name="last_education" class="form-control form-select">
+											<option value="S3">S3</option>
+											<option value="S2">S2</option>
+											<option value="S1">S1</option>
+											<option value="D4">D4</option>
+											<option value="D3">D3</option>
+											<option value="SMA">SMA/sederajat</option>
+											<option value="SMP">SMP/sederajat</option>
+											<option value="SD">SD/sederajat</option>
+										</select>
+									</div>
                                 </div>
-                                <div>
-                                    <label>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Place of Birth:
                                     </label>
-                                    <input placeholder="place of birth" type="text" name="pob" required autofocus>
+									<div class="col-sm-10">
+										<input placeholder="place of birth" class="form-control" type="text" name="pob" required autofocus>
+									</div>
                                 </div>
 
-                                <div>
-                                    <label>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Date of Birth:
                                     </label>
-                                    <select class="inline-group" name="dob-date">
-                                        <?php
-                                            for($i=1; $i<=31; $i++)
-                                                echo("<option value='".$i."'>".$i."</option>");
-                                        ?>
-                                    </select>
-                                    <select class="inline-group" name="dob-month">
-                                        <option value="1">Jan</option>
-                                        <option value="2">Feb</option>
-                                        <option value="3">Mar</option>
-                                        <option value="4">Apr</option>
-                                        <option value="5">May</option>
-                                        <option value="6">Jun</option>
-                                        <option value="7">Jul</option>
-                                        <option value="8">Aug</option>
-                                        <option value="9">Sep</option>
-                                        <option value="10">Oct</option>
-                                        <option value="11">Nov</option>
-                                        <option value="12">Dec</option>
-                                    </select>
-                                    <select class="inline-group" name="dob-year">
-                                        <?php
-                                        for($i=1970; $i<=2015; $i++)
-                                            echo("<option value='".$i."'>".$i."</option>");
-                                        ?>
-                                    </select>
+									<div class="col-sm-10">
+										<select class="tanggal form-control inline-group " name="dob-date">
+											<?php
+												for($i=1; $i<=31; $i++)
+													echo("<option value='".$i."'>".$i."</option>");
+											?>
+										</select>
+										<select class="bulan form-control inline-group " name="dob-month">
+											<option value="1">Januari</option>
+											<option value="2">Februari</option>
+											<option value="3">Maret</option>
+											<option value="4">April</option>
+											<option value="5">Mai</option>
+											<option value="6">Juni</option>
+											<option value="7">Juli</option>
+											<option value="8">Agustus</option>
+											<option value="9">September</option>
+											<option value="10">Oktober</option>
+											<option value="11">November</option>
+											<option value="12">Desember</option>
+										</select>
+										<select class="tahun form-control inline-group" name="dob-year">
+											<?php
+											for($i=1970; $i<=2015; $i++)
+												echo("<option value='".$i."'>".$i."</option>");
+											?>
+										</select>
+									</div>
                                 </div>
-                                <div>
-                                    <label>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         CV:
                                     </label>
-                                    <input type="file" name="cv[]" enctype="multipart/form-data" autofocus>
+									<div class="col-sm-10">
+										<input type="file" name="cv[]" class="form-control" enctype="multipart/form-data" autofocus>
+									</div>
                                 </div>
-                                <div class="sky-form">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="option1">I Agree to Wiwara Karya
-                                        &nbsp;<a class="terms" href="#">terms of service</a>
+                                <div class="form-group ">
+                                    <label class="col-sm-offset-2  col-sm-10 control-label">
+                                        <input type="checkbox" value="option1" style="padding-left: 30px;">I Agree to Wiwara Karya
+                                        <a class="terms" href="#">terms of service</a>
                                     </label>
                                 </div>
+								<div class="pull-right">
                                 <div style="display:inline-block">
                                     <input type="submit" name="submit" value="create an account" accept=".pdf">
                                 </div>
                                 <div style="display: inline-block">
-                                    <a href="<?php echo site_url(); ?>">Cancel</a>
+                                    <a class="btns" href="<?php echo site_url(); ?>">Cancel</a>
                                 </div>
+								</div>
                             <?php echo form_close(); ?>
                         </div>
                     </div>
