@@ -1,5 +1,3 @@
-<?php $this->load->view('layout/header'); ?>
-
 <div class="company_list">
 
 <div class="page-header">
@@ -157,6 +155,3 @@
   </div>
 </div>
 </div>
-
-
-<?php $this->load->view('layout/footer'); ?>

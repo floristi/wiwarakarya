@@ -14,12 +14,12 @@ class C_Company extends CI_Controller{
 
 
 	function create_company() {
-		$isi['isi'] = 'company/create_company_view';
 		if ($this->input->post('submit')) {
 			$this->m_company->insert_company();
 			redirect('c_company');
 		}
-		$this->load->view('company/create_company_view', $isi);
+		$isi['main_content'] = 'company/create_company_view';
+		$this->load->view('layout/template', $isi);
 	}
 
 	function search_company($under = null) {
@@ -27,7 +27,6 @@ class C_Company extends CI_Controller{
 	}
 
 	function get_company() {
-		$isi['isi'] = 'company/company_view';
 		$isi['company_name'] = $this->m_company->get_company_name();
 		
 		$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -35,7 +34,8 @@ class C_Company extends CI_Controller{
 		$isi['query'] = $this->m_company->get_list_company();
 		$isi['confirm'] = $this->session->userdata('notification');
 		$this->session->set_userdata('notification', null);
-		$this->load->view('company/company_view', $isi);
+		$isi['main_content'] = 'company/company_view';
+		$this->load->view('layout/template', $isi);
 	}
 
 	function process($id = null) {
@@ -52,8 +52,8 @@ class C_Company extends CI_Controller{
 	
 	function data_company($id = null) {
 		$isi['query'] = $this->m_company->get_data_company($id);
-		$isi['isi'] = 'company/update_company';
-		$this->load->view('company/update_company', $isi);
+		$isi['main_content'] = 'company/update_company';
+		$this->load->view('layout/template', $isi);
 	}
 
 	function activate($id = null) {
