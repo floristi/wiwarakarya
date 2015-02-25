@@ -46,12 +46,12 @@
                 <h1>New Event</h1>
 
                 <div id="company-container">
-                    <?php echo  form_open("c_event/create_event"); ?>
+                    <?php echo form_open("c_event/edit_event/".$event->id); ?>
                       <fieldset>
                         <div>
                             <label>
                                 Event Name:
-                                <input name="name" placeholder="name" type="text" required autofocus maxlength="50" required value="<?php if(isset($name)) echo $name; ?>">                                 
+                                <input name="name" placeholder="name" type="text" required autofocus maxlength="50" required value="<?php if(isset($event->name)) echo $event->name; ?>">                                 
                                 
                             </label>
                         </div>
@@ -59,34 +59,34 @@
                             <label>
                                 Description:
                             </label>
-                            <textarea name="description" placeholder="description" type="text" required autofocus required value="<?php if(isset($description)) echo $description; ?>"></textarea>
+                            <textarea name="description" placeholder="description" type="text" required autofocus required><?php if(isset($event->description)) echo $event->description; ?></textarea>
                         </div>
                         <div>
                             <label>
                                 Location:
                             </label>
-                            <textarea name="location" placeholder="location" class="text" required value="<?php if(isset($location)) echo $location; ?>"></textarea>
+                            <textarea name="location" placeholder="location" class="text" required><?php if(isset($event->location)) echo $event->location; ?></textarea>
                         </div>
                         
                         <div>
                             <label>
                                 Quota:
                             </label>
-                            <input name="quota" placeholder="quota" type="text" required autofocus required value="<?php if(isset($quota)) echo $quota; ?>">
+                            <input name="quota" placeholder="quota" type="text" required autofocus required value="<?php if(isset($event->quota)) echo $event->quota; ?>">
                         </div>
 
                         <div>
                             <label>
                                 Main Speaker:
                             </label>
-                            <input name="speaker" placeholder="speaker" type="text" required autofocus required value="<?php if(isset($speaker)) echo $speaker; ?>">
+                            <input name="speaker" placeholder="speaker" type="text" required autofocus required value="<?php if(isset($event->speaker)) echo $event->speaker; ?>">
                         </div>
 
-                        <div>
+                        <div>   
                             <label>
                                 Ticket Price:
                             </label>
-                            <input name="price" placeholder="price" type="text" required autofocus required value="<?php if(isset($price)) echo $price; ?>">
+                            <input name="price" placeholder="price" type="text" required autofocus required value="<?php if(isset($event->price)) echo $event->price; ?>">
                         </div>
                         
                         <div>
@@ -94,12 +94,11 @@
                                 Organize by:
                             </label>
                             <div class="controls">
-                              <select id="e2" name="company" class="input-xlarge" name="company_id">
+                              <select id="e2" name="company_id" class="input-xlarge">
                                 <option value=""> - please select company - </option>
-                                <?php 
-                                  foreach ($companies as $row) {
-                                    echo "<option value='$row->name'>". $row->name . "</option>";
-                                  }
+                                <?php foreach ($companies as $row) { ?>
+                                    <option value="<?php echo $row->id; ?>" <?php if(isset($event->created_by) && $event->created_by == $row->id) echo "selected=selected"; ?>> <?php echo $row->name; ?></option>;
+                                <?php } ?>
                                 ?>
                               </select>
                               <span class="help-block">Apabila data company belum dimasukan, biarkan field ini kosong atau <a href="<?php echo site_url('c_company/create_company'); ?>"> Register Company</a> <br><?php echo form_error('company'); ?></span>

@@ -128,7 +128,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a class="color2" href="<?php echo site_url('c_company');?>">Companies</a></li>
 							<?php } ?>
 							<li><a class="color2" href="<?php echo site_url('navigation/info_career');?>">Info Careers</a></li>
-							<li><a class="color2" href="<?php echo site_url('navigation/event');?>">Events</a></li>
+							<li><a class="color2" href="<?php echo site_url('c_event');?>">Events</a></li>
 							<li><a class="color2" href="<?php echo site_url('navigation/payment');?>">Payment</a></li>
 							<li><a class="color2" href="<?php echo site_url('navigation/gallery');?>">Gallery</a></li>
 							<li><a class="color2" href="<?php echo site_url('navigation/about_us');?>">About Us</a></li>
