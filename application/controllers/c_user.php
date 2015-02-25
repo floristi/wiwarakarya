@@ -43,5 +43,29 @@ class C_User extends CI_Controller {
 		$this->m_user->delete_applicant($id);	
 		redirect('c_user');
 	}
+
+	public function login() {
+		if ($this->input->post('submit')) {
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$role = $this->m_user->login($username, $password);
+
+			if ($role == 'ADMIN' || $role == 'APPLICANT') {
+				$data = array(
+					'username' => $username,
+					'is_logged_in' => true,
+					'role' => $role
+				);
+				$this->session->set_userdata($data);
+			}
+		}
+		redirect('navigation');
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('navigation');
+	}
 }
 ?>

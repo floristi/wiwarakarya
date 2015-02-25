@@ -64,24 +64,14 @@ class M_User extends CI_Model {
 		$this->db->where('username', $username);
 		$this->db->where('password', $password);
 		$query = $this->db->get();
+
+        $role = 'NOT_REGISTERED';
+
+        if ($query->num_rows() > 0) {
+            $role = $query->row()->role;
+        }
 		
-		$hasil = $query->result();
-		
-		$id_applicant = 0;
-		
-		foreach($hasil as $row){
-			$id_applicant = $row->applicant_id;
-			
-		}
-		
-		
-		
-		$this->db->select('*');
-		$this->db->from('applicants');
-		$this->db->where('id', $id_applicant);
-		$query_app = $this->db->get();
-		
-		return $query_app->result();
+		return $role;
 	}
 
 }
