@@ -6,7 +6,7 @@ TODO:
 	- Update data diri 
 3. CRUD Lowongan
 4. Tampilan Detail Company dimapping dgn Lowongan (Info career) unt user view
-5. Rapihin CRUD Event
+5. Rapihin CRUD Event  => DONE, by hafizh & flo (kurang field time, tolong tambahin dulu view nya man)
 6. Rapihin Edit/Update User & Perusahaan
 7. Tampilan Detail Event unt view user
 8. Tampilan Home dengan Query:
@@ -18,4 +18,3 @@ TODO:
 
 Maman
 1. Login/Logout Done
-2. 
