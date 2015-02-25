@@ -24,8 +24,7 @@ class Navigation extends CI_Controller {
 		$this->load->library('session');
     }
 	
-	public function index()
-	{
+	public function index() {
 		$this->load->view('welcome_message');
 	}
 	

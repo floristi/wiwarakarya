@@ -76,50 +76,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								
 								<div class="top_right">
 									<ul>
-										<?php
-											$logged = $this->session->userdata('logged_in');
-											
-												if ($logged != 1)
-												{
-											?>
+										<?php if (!$this->session->userdata('is_logged_in')) {?>
 										<li>
 											<a href="<?php echo site_url('c_user/create');?>">Create Account </a>
 										</li>|
 										
 										<li class="login" >
-											
 											<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
 												<div id="loginBox">
-													<form id="loginForm" method="post" action="<?php echo site_url('c_login/process')?>">
+													<form id="loginForm" method="post" action="<?php echo site_url('c_user/login')?>">
 														<fieldset id="body">
 															<fieldset>
-																  <label for="email">Email Address</label>
-																  <input type="text" name="email" id="email">
+																  <label for="username">Username</label>
+																  <input type="text" name="username" id="username">
 															</fieldset>
 															<fieldset>
 																	<label for="password">Password</label>
 																	<input type="password" name="password" id="password">
 															 </fieldset>
 															<input type="submit" name="submit" id="login" value="Sign in">
-															<label for="checkbox"><input type="checkbox" name="remember" id="checkbox" value="1"> <i>Remember me</i></label>
+															<!-- <label for="checkbox"><input type="checkbox" name="remember" id="checkbox" value="1"> <i>Remember me</i></label> -->
 														</fieldset>
-														<span><a href="#">Forgot your password?</a></span>
+														<!-- <span><a href="#">Forgot your password?</a></span> -->
 													</form>
 												</div>
 											</div>
 										</li>
-											<?php
-												}
-												else
-												{
-											?>
+										<?php } else { ?>
+										<li>Hello, <?php echo $this->session->userdata('username'); ?></li>
 										<li class="login" >
-											
-											<div id="logoutContainer"><a href="<?php echo site_url('c_login/logout');?>" id="logoutButton"><span>Logout</span></a>
+											<div id="logoutContainer"><a href="<?php echo site_url('c_user/logout');?>" id="logoutButton"><span>Logout</span></a>
 										</li>
-											<?php
-												}										
-											?>
+										<?php } ?>
 									</ul>
 								</div>
 								<div class="clearfix"> </div>
@@ -135,8 +123,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<span class="menu"> </span>
 					<ul class="megamenu skyblue">
 							<li><a class="color2" href="<?php echo site_url('navigation');?>">Home</a></li>
-							<li><a class="color2" href="<?php echo site_url('c_user');?>">Users</a></li>
-							<li><a class="color2" href="<?php echo site_url('c_company');?>">Companies</a></li>
+							<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'ADMIN') { ?>
+								<li><a class="color2" href="<?php echo site_url('c_user');?>">Users</a></li>
+								<li><a class="color2" href="<?php echo site_url('c_company');?>">Companies</a></li>
+							<?php } ?>
 							<li><a class="color2" href="<?php echo site_url('navigation/info_career');?>">Info Careers</a></li>
 							<li><a class="color2" href="<?php echo site_url('navigation/event');?>">Events</a></li>
 							<li><a class="color2" href="<?php echo site_url('navigation/payment');?>">Payment</a></li>
@@ -157,4 +147,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			  });
 			});
 		</script>
-		<!-- script-for-nav -->
+		<!-- script-for-nav 
