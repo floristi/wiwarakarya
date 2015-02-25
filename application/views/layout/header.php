@@ -68,7 +68,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 							</div>
 							<div class="col-md-11">
-								<div class="social-icons">
+									<div class="social-icons">
 										<i class="facebook"></i>
 										<i class="twitter"></i>
 										<i class="googlepluse"></i>
@@ -103,9 +103,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</div>
 										</li>
 										<?php } else { ?>
-										<li>Hello, <?php echo $this->session->userdata('username'); ?></li>
+										<li class="login">Hello, <?php echo $this->session->userdata('username'); ?></li> | 
 										<li class="login" >
-											<div id="logoutContainer"><a href="<?php echo site_url('c_user/logout');?>" id="logoutButton"><span>Logout</span></a>
+											<div id="logoutContainer"><a href="<?php echo site_url('c_user/logout');?>" id="logoutButton"><span>Logout</span></a></div>
 										</li>
 										<?php } ?>
 									</ul>
@@ -147,4 +147,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			  });
 			});
 		</script>
-		<!-- script-for-nav 
+		<!-- script-for-nav -->
