@@ -1,0 +1,21 @@
+TODO:
+1. Upload CV Registrasi => database eror
+2. Dashboard User: 
+	- History Lowongan,
+	- Inbox
+	- Update data diri 
+3. CRUD Lowongan
+4. Tampilan Detail Company dimapping dgn Lowongan (Info career) unt user view
+5. Rapihin CRUD Event
+6. Rapihin Edit/Update User & Perusahaan
+7. Tampilan Detail Event unt view user
+8. Tampilan Home dengan Query:
+	- lowongan
+	- event
+9. View + Upload Galery (sementara hardcode in aja)
+10. Paginasi
+11. Validasi
+
+Maman
+1. Login/Logout Done
+2. 
