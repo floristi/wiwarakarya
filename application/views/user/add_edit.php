@@ -164,12 +164,12 @@
                                     </label>
                                 </div>
 								<div class="pull-right">
-                                <div style="display:inline-block">
-                                    <input type="submit" name="submit" value="create an account" accept=".pdf">
-                                </div>
-                                <div style="display: inline-block">
-                                    <a class="btns" href="<?php echo site_url(); ?>">Cancel</a>
-                                </div>
+									<div style="display:inline-block">
+										<input type="submit" name="submit" value="create an account" accept=".pdf">
+									</div>
+									<div style="display: inline-block">
+										<a class="btns" href="<?php echo site_url(); ?>">Cancel</a>
+									</div>
 								</div>
                             <?php echo form_close(); ?>
                         </div>

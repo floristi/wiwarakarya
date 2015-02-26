@@ -4,7 +4,7 @@
 
     <h1>Company List</h1>
     <a style="font-size:1.5em" href="<?php echo site_url('c_company/create_company') ?>">+Create Company</a>
-    <table class="table table-striped">
+    <table id="list" class="display table table-striped" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 				<th>Company Name</th>
@@ -14,6 +14,16 @@
 				<th>Status</th>
 			</tr>
 		</thead>
+		
+		<tfoot>
+			<tr>
+				<th>Company Name</th>
+				<th>Address</th>
+				<th>Email</th>
+				<th>Phone Number</th>
+				<th>Status</th>
+			</tr>
+		</tfoot>
 		
 		<tbody>
 			<?php foreach ($query as $row) {
@@ -70,6 +80,12 @@
 			<?php } ?>
 			</tbody>
 		</table>
+		<script type="text/javascript" src="<?php echo base_url();?>resources/DataTables-1.10.5/media/js/jquery.dataTables.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#list').DataTable();
+			} );
+		</script>
 </div>
 </div>
 </div>

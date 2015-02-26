@@ -18,3 +18,11 @@ TODO:
 
 Maman
 1. Login/Logout Done
+
+
+2. View Company List Progress
+3. View User List Progress
+
+
+CATATAN;
+Kirimin dump sql lengkap sama data2 biar bisa lihat viewnya lebih jelas

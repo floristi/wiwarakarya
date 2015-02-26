@@ -395,6 +395,7 @@ label {
 .registration_form  .btns:hover{
 	color: #ffffff;
 	background:#ed1c24;
+	text-decoration: none;
 }
 
 .terms{
