@@ -11,6 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<link href="<?php echo base_url();?>resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 		<link href="<?php echo base_url();?>resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="<?php echo base_url();?>resources/DataTables-1.10.5/media/css/jquery.dataTables.css" rel="stylesheet" type="text/css" media="all" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,7 +25,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<!-- Theme CSS file: it makes eventCalendar nicer -->
 		<link rel="stylesheet" href="<?php echo base_url();?>resources/css/eventCalendar_theme_responsive.css">
-		<script src="<?php echo base_url();?>resources/js/jquery-1.10.2.js"></script>
+		<script src="<?php echo base_url();?>resources/DataTables-1.10.5/media/js/jquery.js"></script>
 		<script src="<?php echo base_url();?>resources/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>resources/js/easing.js"></script>
 

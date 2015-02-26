@@ -2,7 +2,7 @@
 <div class="main">
     <!-- start registration -->
     <div class="registration">
-        <div class="registration_left">
+        <div>
             <!-- [if IE]
                 < link rel='stylesheet' type='text/css' href='ie.css'/>
                 [endif] -->
@@ -45,56 +45,70 @@
             <div class="registration_form">
                 <h1>New Event</h1>
 
-                <div id="company-container">
-                    <?php echo  form_open("c_event/create_event"); ?>
-                      <fieldset>
-                        <div>
-                            <label>
-                                Event Name:
-                                <input name="name" placeholder="name" type="text" required autofocus maxlength="50" required value="<?php if(isset($name)) echo $name; ?>">                                 
-                                
+                <div id="user-container">
+                    <?php 
+						$attributes = array('class' => 'form-horizontal');	
+						echo  form_open("c_event/create_event", $attributes); 
+					?>
+                      
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                Event Name:	
                             </label>
+							<div class="col-sm-10">
+								<input name="name" placeholder="name" class="form-control" type="text" required autofocus maxlength="50" required value="<?php if(isset($name)) echo $name; ?>">								
+							</div>
                         </div>
-                        <div>
-                            <label>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
                                 Description:
                             </label>
-                            <textarea name="description" placeholder="description" type="text" required autofocus required value="<?php if(isset($description)) echo $description; ?>"></textarea>
-                        </div>
-                        <div>
-                            <label>
+							<div class="col-sm-10">
+								<textarea name="description" placeholder="description" class="form-control" rows="3" type="text" required autofocus required value="<?php if(isset($description)) echo $description; ?>"></textarea>
+							</div>
+						</div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
                                 Location:
                             </label>
-                            <textarea name="location" placeholder="location" class="text" required value="<?php if(isset($location)) echo $location; ?>"></textarea>
-                        </div>
+							<div class="col-sm-10">
+								<textarea name="location" placeholder="location" class="form-control" rows="3" type="text" required value="<?php if(isset($location)) echo $location; ?>"></textarea>
+							</div>
+						</div>
                         
-                        <div>
-                            <label>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
                                 Quota:
                             </label>
-                            <input name="quota" placeholder="quota" type="text" required autofocus required value="<?php if(isset($quota)) echo $quota; ?>">
-                        </div>
+							<div class="col-sm-10">
+								<input name="quota" placeholder="quota" class="form-control" type="text" required autofocus required value="<?php if(isset($quota)) echo $quota; ?>">
+							</div>
+						</div>
 
-                        <div>
-                            <label>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
                                 Main Speaker:
                             </label>
-                            <input name="speaker" placeholder="speaker" type="text" required autofocus required value="<?php if(isset($speaker)) echo $speaker; ?>">
-                        </div>
+							<div class="col-sm-10">
+								<input name="speaker" placeholder="speaker" class="form-control" type="text" required autofocus required value="<?php if(isset($speaker)) echo $speaker; ?>">
+							</div>
+						</div>
 
-                        <div>
-                            <label>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
                                 Ticket Price:
                             </label>
-                            <input name="price" placeholder="price" type="text" required autofocus required value="<?php if(isset($price)) echo $price; ?>">
-                        </div>
+							<div class="col-sm-10">
+								<input name="price" placeholder="price" class="form-control" type="text" required autofocus required value="<?php if(isset($price)) echo $price; ?>">
+							</div>
+						</div>
                         
-                        <div>
-                            <label>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
                                 Organize by:
                             </label>
-                            <div class="controls">
-                              <select id="e2" name="company" class="input-xlarge" name="company_id">
+                            <div class="controls col-sm-3">
+                              <select id="e2" name="company" class="input-xlarge form-control" name="company_id">
                                 <option value=""> - please select company - </option>
                                 <?php 
                                   foreach ($companies as $row) {
@@ -102,16 +116,22 @@
                                   }
                                 ?>
                               </select>
-                              <span class="help-block">Apabila data company belum dimasukan, biarkan field ini kosong atau <a href="<?php echo site_url('c_company/create_company'); ?>"> Register Company</a> <br><?php echo form_error('company'); ?></span>
-                          </div>
+							</div>
+							
+							<span style="padding:10px 0 0 0;"class="help-block">&nbsp; &nbsp;Apabila data company belum dimasukan, biarkan field ini kosong atau <a href="<?php echo site_url('c_company/create_company'); ?>"> Register Company</a> <br><?php echo form_error('company'); ?></span>
+                          
                         </div>
-
-                        <div class="form-actions">
-                            <input class="btn btn-primary" type="submit" value="Create Event" name="submit">
-                            <a href="<?php echo site_url('c_event'); ?>"><input class="btn btn-danger" type="button" value="Batal" name="batal" onclick="return confirm Action('Apakah anda yakin tidak ingin menambahkan event baru?');"></a>
-                        </div>
+						
+						<div class="pull-right">
+							<div class="form-actions" style="display:inline-block">
+								<input type="submit" value="Create Event" name="submit">
+							</div>
+							<div class="form-actions" style="display:inline-block">
+								<a class="btns" href="<?php echo site_url('c_event'); ?>" onclick="return confirm Action('Apakah anda yakin tidak ingin menambahkan event baru?')";>Cancel</a>
+							</div>
+						</div>
                         
-                        </fieldset>
+                        
                     <?php echo form_close(); ?>
                 </div>
             </div>
