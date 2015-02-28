@@ -45,7 +45,7 @@ class C_User extends CI_Controller {
 									$this->input->post('dob-month').'-'.
 									$this->input->post('dob-date')
 			);
-			$this->m_user->edit_applicant($id, $user_data);
+			$this->m_user->update_applicant($id, $user_data);
 			//redirect('c_user');
 		}
 
