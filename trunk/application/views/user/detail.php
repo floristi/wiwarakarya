@@ -53,7 +53,11 @@
                         <div id="user-container">
                             
                            <?php //var_dump($user); ?>
-							
+								<div class="col-sm-12">
+									<div class="buttonedit pull-right">
+										<a class="btn btn-primary" href="<?php echo site_url('c_user/update/'.$user->id);?>" role="button">Update My Profile</a>
+									</div>
+								</div>
 								<div class="col-sm-10">
 									<div class="col-sm-2">
 										Nama
