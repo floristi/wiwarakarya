@@ -44,7 +44,7 @@
 					<td><?php echo $user->dob; ?> </td>
 					<td>
 						<?php if ($user->cv_path) : ?>
-							<a>download CV</a>
+							<a href="<?php echo $user->cv_path; ?>">download CV</a>
 						<?php endif; ?>
 					</td>
 					<td>
