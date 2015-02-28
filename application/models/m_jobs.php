@@ -48,8 +48,8 @@ class M_Jobs extends CI_Model {
 
         $this->db->trans_start();
 
-        
-        
+        // $db_data_job =
+
         $this->db->trans_complete();
 
     }
