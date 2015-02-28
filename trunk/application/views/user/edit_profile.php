@@ -64,7 +64,9 @@
                                         Password:                                        
                                     </label>
 									<div class="col-sm-10">
-										<input placeholder="password" class="form-control" type="password" name="password" required autofocus></input>
+										<input placeholder="password" class="form-control" type="password" name="password" required autofocus>
+											
+										</input>
 									</div>
                                 </div>
                                 <div class="form-group">
@@ -82,7 +84,9 @@
                                         
                                     </label>
 									<div class="col-sm-10">
-										<input placeholder="full name" type="text" class="form-control" name="fullname" required autofocus>
+										<input placeholder="full name" type="text" class="form-control" name="fullname" value="<?php echo $user->name;?>" required autofocus>
+											
+										</input>
 									</div>
                                 </div>
                                 <div class="form-group">
@@ -91,14 +95,14 @@
                                     </label>
 									<div class="col-sm-10">
 										<select name="last_education" class="form-control form-select">
-											<option value="S3">S3</option>
-											<option value="S2">S2</option>
-											<option value="S1">S1</option>
-											<option value="D4">D4</option>
-											<option value="D3">D3</option>
-											<option value="SMA">SMA/sederajat</option>
-											<option value="SMP">SMP/sederajat</option>
-											<option value="SD">SD/sederajat</option>
+											<option value="S3" <?php if($user->last_education == "S3") echo "selected"?>>S3</option>
+											<option value="S2" <?php if($user->last_education == "S2") echo "selected"?>>S2</option>
+											<option value="S1" <?php if($user->last_education == "S1") echo "selected"?>>S1</option>
+											<option value="D4" <?php if($user->last_education == "D4") echo "selected"?>>D4</option>
+											<option value="D3" <?php if($user->last_education == "D3") echo "selected"?>>D3</option>
+											<option value="SMA" <?php if($user->last_education == "SMA") echo "selected"?>>SMA/sederajat</option>
+											<option value="SMP" <?php if($user->last_education == "SMP") echo "selected"?>>SMP/sederajat</option>
+											<option value="SD" <?php if($user->last_education == "SD") echo "selected"?>>SD/sederajat</option>
 										</select>
 									</div>
                                 </div>
@@ -107,7 +111,7 @@
                                         Place of Birth:
                                     </label>
 									<div class="col-sm-10">
-										<input placeholder="place of birth" class="form-control" type="text" name="pob" required autofocus>
+										<input placeholder="place of birth" class="form-control" type="text" name="pob" value="<?php echo $user->pob;?>" required autofocus>
 									</div>
                                 </div>
 
@@ -116,13 +120,19 @@
                                         Date of Birth:
                                     </label>
 									<div class="col-sm-10">
-										<select class="tanggal form-control inline-group " name="dob-date">
+										<select class="tanggal form-control inline-group selecttgl" name="dob-date">
 											<?php
 												for($i=1; $i<=31; $i++)
-													echo("<option value='".$i."'>".$i."</option>");
+													
+													echo("<option id='val".$i."' value='".$i."'>".$i."</option>");
 											?>
 										</select>
-										<select class="bulan form-control inline-group " name="dob-month">
+										<script>
+											var tgl = <?php echo substr($user->dob, -2)?>;
+											$(".selecttgl").val(tgl);
+										
+										</script>
+										<select class="bulan form-control inline-group selectbln" name="dob-month">
 											<option value="1">Januari</option>
 											<option value="2">Februari</option>
 											<option value="3">Maret</option>
@@ -136,17 +146,41 @@
 											<option value="11">November</option>
 											<option value="12">Desember</option>
 										</select>
-										<select class="tahun form-control inline-group" name="dob-year">
+										
+										<script>
+											var bln = <?php echo substr($user->dob, -5, 2)?>;
+											$(".selectbln").val(bln);
+										
+										</script>
+										<select class="tahun form-control inline-group selectthn" name="dob-year">
 											<?php
 											for($i=1970; $i<=2015; $i++)
 												echo("<option value='".$i."'>".$i."</option>");
 											?>
 										</select>
+										<script>
+											var thn = <?php echo substr($user->dob, 0, 4)?>;
+											$(".selectthn").val(thn);
+										
+										</script>
+									</div>
+                                </div>
+								<div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        Current CV:
+                                    </label>
+									<div class="col-sm-10">
+										<?php 
+											if($user->cv_path == "0")
+												echo "No CV";
+											else
+												echo $user->cv_path;
+										?>
 									</div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">
-                                        CV:
+                                        Update CV:
                                     </label>
 									<div class="col-sm-10">
 										<input type="file" name="cv" class="form-control" enctype="multipart/form-data" autofocus>
