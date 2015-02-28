@@ -4,7 +4,25 @@
 				<div class="col-md-9">
 					<div class="well">
 						<h3>About Wiwara Karya</h3>
-						<p>Wiwara Karya is lalalalala</p>
+						<p>Wiwara Works is a company engaged in the provision of information services work and also training for prospective workers are established in order to make it easy for job seekers to obtain job information and facilitate companies in Indonesia who need workers to get employee according to the needs. The working area of wiwara work throughout Indonesia and temporarily located in the city of Semarang, Central Java Province.</p>
+					</div>
+
+					<div class="well">
+						<h3>Vision</h3>
+						<p>Being a service provider and reliable information featured jobs with guaranteed quality work, especially in Semarang.</p>
+					</div>
+
+					<div class="well">
+						<h3>Mission</h3>
+						<p>Our missions are:
+							<ol class="nav">
+      							<li>1. Provide job information on the company - a bona fide company in Indonesia with easy access.</li>
+      							<li>2. Organizing Jobfair.</li>
+								<li>3. Training - training for job seekers to have a superior capacity.</li>
+								<li>4. Awarenness brand building company that is well known by the public</li> 
+								<li>5. Improve marketing and networking company through various media</li>
+      						</ol>
+						</p>
 					</div>
 				</div>
 				<!-- Site Right Side -->
