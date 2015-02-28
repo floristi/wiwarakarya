@@ -3,9 +3,6 @@ class C_Company extends CI_Controller{
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->library('session');
-		$this->load->helper(array('url','form'));
-		$this->load->model('m_company');
 	}
 
 	public function index() {
