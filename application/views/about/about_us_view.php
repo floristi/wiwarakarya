@@ -10,7 +10,7 @@
 				<!-- Site Right Side -->
 				<div class="col-md-3 span_1_of_right">
 					<div>
-						<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-rounded img-responsive">
+						<img src="<?php echo base_url();?>resources/images/IMG-20150228-WA0000.jpg" class="img-rounded img-responsive">
 					</div>
 
 					<div class="clearfix"></div>
