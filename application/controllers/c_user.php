@@ -23,7 +23,7 @@ class C_User extends CI_Controller {
 									$this->input->post('dob-date')
 			);
 			$this->m_user->insert_applicant($user_data);
-			// redirect('c_user');
+			redirect('c_user');
 		}
 
 		$data['main_content'] = 'user/add_edit';
