@@ -49,7 +49,7 @@ class C_User extends CI_Controller {
 			redirect('c_user');
 		}
 
-		$data['user'] = $this->m_user->get_profile($username);
+		$data['user'] = $this->m_user->get_profile($id);
 		$data['main_content'] = 'user/edit_profile';
 		$this->load->view('layout/template', $data);
 	}
