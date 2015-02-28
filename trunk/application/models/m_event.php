@@ -84,5 +84,25 @@ class m_event extends CI_Model {
         $this->db->delete('events');
     }
 
+    function register_event() {
+        $data = array(
+            'user_id' => $this->input->post('user_id'),
+            'event_id' => $this->input->post('event_id')
+        );
+
+        $this->db->insert('event_registrations', $data);
+    }
+
+    function get_registered_events_by_user_id($user_id) {
+        $event_ids = $this->db->get_where('event_registrations', array('user_id' => $user_id))->result();
+
+        $events = array();
+        foreach($event_ids as $event_id) {
+            $this->db->where('id', $event_id);
+            $events[] = $this->db->get('event')->row();
+        }
+
+        return $events;
+    }
 }
 ?>

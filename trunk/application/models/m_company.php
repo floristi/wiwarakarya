@@ -141,8 +141,6 @@ class M_company extends CI_Model {
     //     $this->db->from('wiwarakarya.companies');
     //     return $this->db->count_all_results();
     // }
-    
-
 }
 
 ?>
