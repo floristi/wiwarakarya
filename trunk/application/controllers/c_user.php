@@ -23,17 +23,35 @@ class C_User extends CI_Controller {
 									$this->input->post('dob-date')
 			);
 			$this->m_user->insert_applicant($user_data);
-			redirect('c_user');
+			// redirect('c_user');
 		}
 
 		$data['main_content'] = 'user/add_edit';
 		$this->load->view('layout/template', $data);
 	}
 
-	public function edit($id) {
+	public function update($id) {
 		if ($id === null) {
 			redirect('c_user');
 		}
+		if ($this->input->post('submit')) {
+			$user_data = array(
+				'username'       => $this->input->post('username'),
+				'password'       => $this->input->post('password'),
+				'fullname'       => $this->input->post('fullname'),
+				'last_education' => $this->input->post('last_education'),
+				'pob'            => $this->input->post('pob'),
+				'dob'            => $this->input->post('dob-year').'-'.
+									$this->input->post('dob-month').'-'.
+									$this->input->post('dob-date')
+			);
+			$this->m_user->edit_applicant($id, $user_data);
+			redirect('c_user');
+		}
+
+		$data['main_content'] = 'user/add_edit';
+		$data['mode']         = 'edit';
+		$this->load->view('layout/template', $data);
 	}
 
 	public function delete($id) {
@@ -60,6 +78,12 @@ class C_User extends CI_Controller {
 			}
 		}
 		redirect('navigation');
+	}
+
+	public function detail($username) {
+		$data['user'] = $this->m_user->get_profile($username);
+		$data['main_content'] = 'user/detail';
+		$this->view->load('layout/template', $data);
 	}
 
 	public function logout()
