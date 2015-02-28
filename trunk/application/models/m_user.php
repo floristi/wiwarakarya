@@ -104,8 +104,8 @@ class M_User extends CI_Model {
     function get_profile($username) {
         $query = "SELECT u.id, u.username, u.password, a.name, a.last_education, a.cv_path, a.pob, a.dob ".
                 "FROM users u JOIN applicants a ON u.role = 'APPLICANT' AND u.applicant_id = a.id " .
-                "WHERE u.username = '" + $username + "'";
-        $result = $this->db->query($query)->get()->row();
+                "WHERE u.username = '" . $username . "'";
+        $result = $this->db->query($query)->row();
         return $result;
     }
 

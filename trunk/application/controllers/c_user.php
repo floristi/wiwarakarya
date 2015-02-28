@@ -79,11 +79,13 @@ class C_User extends CI_Controller {
 		}
 		redirect('navigation');
 	}
+	
+	
 
 	public function detail($username) {
 		$data['user'] = $this->m_user->get_profile($username);
 		$data['main_content'] = 'user/detail';
-		$this->view->load('layout/template', $data);
+		$this->load->view('layout/template', $data);
 	}
 
 	public function logout()

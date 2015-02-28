@@ -104,7 +104,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</div>
 										</li>
 										<?php } else { ?>
-										<li class="login">Hello, <?php echo $this->session->userdata('username'); ?></li> | 
+										<li class="login">
+											<div id="logoutContainer">Hello, <a href="<?php echo site_url('c_user/detail/'.$this->session->userdata('username'));?>" id="logoutButton"><span><?php echo $this->session->userdata('username'); ?></span></a></div>
+										</li>| 
 										<li class="login" >
 											<div id="logoutContainer"><a href="<?php echo site_url('c_user/logout');?>" id="logoutButton"><span>Logout</span></a></div>
 										</li>
