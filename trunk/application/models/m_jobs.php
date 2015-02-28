@@ -4,20 +4,10 @@ class M_Jobs extends CI_Model {
 
     public function __construct() {
         parent::__construct();
-
-        $this->cv_path = realpath(APPPATH . '../uploads/cv');
-        $this->cv_path_url = base_url() . 'uploads/cv/';
     }
     
     function get_all_jobs() {
-        $query = "SELECT ".
-                "FROM jobs j JOIN companies c ON j.";
-        $result = $this->db->query($query)->result();
-        $ret = array();
-        foreach ($result as $data) {
-            $ret[] = $data;
-        }
-        return $ret;
+        return $this->db->get('jobs')->result();
     }
 
     function get_job($id) {
@@ -30,7 +20,6 @@ class M_Jobs extends CI_Model {
 
     	$db_data_job = array(
 			'name'				=> $this->input->post('name'),
-			'description' 		=> $this->input->post('description'),
 			'position'			=> $this->input->post('position'),
 			'position_category' => $this->input->post('position_category'),
 			'due_date'    		=> $this->input->post('due-year').'-'.
@@ -50,12 +39,10 @@ class M_Jobs extends CI_Model {
     }
 
     function update_job($id) {
-
         $this->db->trans_start();
 
         $db_data_job = array(
             'name'              => $this->input->post('name'),
-            'description'       => $this->input->post('description'),
             'position'          => $this->input->post('position'),
             'position_category' => $this->input->post('position_category'),
             'due_date'          => $this->input->post('due-year').'-'.
@@ -70,7 +57,7 @@ class M_Jobs extends CI_Model {
             'created_by'        => $this->input->post('created_by')
         );
 
-        $this->db->where('id', $db_data_job);
+        $this->db->where('id', $id);
         $this->db->update('jobs', $db_data_job);
 
         $this->db->trans_complete();
@@ -78,7 +65,18 @@ class M_Jobs extends CI_Model {
 
     function delete_job($id) {
         $this->db->where('id', $id);
-        $this->db->delete('events');
+        $this->db->delete('jobs');
+    }
+
+    function apply_job() {
+        $db_data_application = array(
+            'applicant_id' => $this->input->post('applicant_id'),
+            'company_id' => $this->input->post('company_id'),
+            'status' => false,
+            'created_at' => new Date()
+        );
+
+        $this->db->insert('applications', $db_data_application);
     }
 }
 ?>

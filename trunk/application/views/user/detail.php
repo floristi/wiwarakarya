@@ -52,7 +52,6 @@
                         <h1>My Profile</h1>
                         <div id="user-container">
                             
-                           <?php //var_dump($user); ?>
 								<div class="col-sm-12">
 									<div class="buttonedit pull-right">
 										<a class="btn btn-primary" href="<?php echo site_url('c_user/update/'.$user->id);?>" role="button">Update My Profile</a>
