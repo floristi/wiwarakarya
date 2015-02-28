@@ -57,5 +57,11 @@ class C_Company extends CI_Controller{
 		$this->m_company->company_activation($id);
 		redirect('c_company/get_company');
 	}
+
+	function delete() {
+		if ($this->input->post('id')) {
+			$this->m_company->delete();
+		}
+	}
 }
 ?>

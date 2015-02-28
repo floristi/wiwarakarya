@@ -68,6 +68,11 @@ class M_Jobs extends CI_Model {
         $this->db->delete('jobs');
     }
 
+    function set_status_job($id, $status) {
+        $this->db->where('id', $id);
+        $this->db->update('jobs', array('jobs', array('status' => $status)));
+    }
+
     function apply_job() {
         $db_data_application = array(
             'applicant_id' => $this->input->post('applicant_id'),

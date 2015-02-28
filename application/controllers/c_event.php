@@ -35,12 +35,16 @@ class c_event extends CI_Controller{
 		$this->load->view('layout/template', $isi);
 	}
 
-	function delete_event($id) {
-		if ($id == null) {
-            return;
+	function delete_event() {
+		if ($this->input->post('id')) {
+            $this->m_event->delete_event($id);
 		}
-		$this->m_event->delete_event($id);
-		redirect('c_event');
+	}
+
+	function register_event() {
+		if ($this->input->post('id')) {
+			$this->m_event->register_event();
+		}
 	}
 }
 ?>

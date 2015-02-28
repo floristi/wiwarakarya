@@ -42,6 +42,12 @@ class C_jobs extends CI_Controller {
  		}
 	}
 
+	public function set_job_status() {
+		if ($this->input->post($id)) {
+			$this->m_jobs->set_job_status($this->input->post('id'), $this->input->post('status'));
+		}
+	}
+
 	public function detail($id) {
 		$this->m_jobs->get_job($id);
 	}
