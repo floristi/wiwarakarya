@@ -1,6 +1,16 @@
 <?php
 
 class M_User extends CI_Model {
+
+    var $cv_path;
+    var $cv_path_url;
+
+    public function __construct() {
+        parent::__construct();
+
+        $this->cv_path = realpath(APPPATH . '../uploads/cv');
+        $this->cv_path_url = base_url() . 'uploads/cv/';
+    }
     
     function get_all_applicants() {
         $query = "SELECT u.id, u.username, u.password, a.name, a.last_education, a.cv_path, a.pob, a.dob ".
@@ -16,10 +26,12 @@ class M_User extends CI_Model {
     function insert_applicant($data) {
         $this->db->trans_start();
 
+        $cv_url = $this->upload_cv();
+
         $db_data_applicant = array(
             'name'           => $data['fullname'],
             'last_education' => $data['last_education'],
-            'cv_path'             => null,
+            'cv_path'        => $this->cv_path_url . $cv_url,
             'pob'            => $data['pob'],
             'dob'            => date($data['dob']),
             'is_premium'     => false
@@ -73,6 +85,29 @@ class M_User extends CI_Model {
 		
 		return $role;
 	}
+
+    function upload_cv() {
+        $config = array(
+            'allowed_types' => 'pdf',
+            'upload_path' => $this->cv_path,
+            'max_size' => 2000
+        );
+
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('cv');
+        $cv_data = $this->upload->data('cv');
+        echo $this->upload->display_errors();
+
+        return $cv_data['file_name'];
+    }
+
+    function get_profile($username) {
+        $query = "SELECT u.id, u.username, u.password, a.name, a.last_education, a.cv_path, a.pob, a.dob ".
+                "FROM users u JOIN applicants a ON u.role = 'APPLICANT' AND u.applicant_id = a.id " .
+                "WHERE u.username = '" + $username + "'";
+        $result = $this->db->query($query)->get()->row();
+        return $result;
+    }
 
 }
 
