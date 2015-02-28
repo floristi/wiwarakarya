@@ -2986,3 +2986,21 @@ ul.product li.product_desc h4 a {
 .form-horizontal .control-label{
 	text-align: left;
 }
+
+.registration_form .lowongan{
+	padding-top:20px;
+}
+
+.registration_form  .panel-heading {
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.registration_form .panel-body {
+padding: 15px;
+}
+
+.registration_form .buttonedit{
+	padding: 0px 0px 15px 0px;
+}

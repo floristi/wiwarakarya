@@ -46,10 +46,11 @@ class C_User extends CI_Controller {
 									$this->input->post('dob-date')
 			);
 			$this->m_user->edit_applicant($id, $user_data);
-			redirect('c_user');
+			//redirect('c_user');
 		}
 
-		$data['user'] = $this->m_user->get_profile($id);
+		$data['user'] = $this->m_user->get_profile_by_id($id);
+
 		$data['main_content'] = 'user/edit_profile';
 		$this->load->view('layout/template', $data);
 	}
