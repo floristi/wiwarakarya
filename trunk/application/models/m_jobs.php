@@ -43,5 +43,9 @@ class M_Jobs extends CI_Model {
     	$this->db->insert('jobs', $db_data_job);
     	$this->db->trans_complete();
     }
+
+    function update_job($id) {
+        $this->
+    }
 }
 ?>

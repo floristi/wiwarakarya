@@ -80,6 +80,7 @@ class M_User extends CI_Model {
             $db_data_applicant['cv_path'] = base_url().'./uploads/'.$cv_file_name; 
         }
 
+        $this->db->where('id', $applicant_id);
         $this->db->update('applicants', $db_data_applicant);
         
         $this->db->trans_complete();
