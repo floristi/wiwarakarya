@@ -53,7 +53,36 @@ class M_User extends CI_Model {
     }
 
     function update_applicant($id) {
+        $this->db->trans_start();
+        // $foto = $this->input->post('upload');
 
+        $db_data_user = array(
+            'password'      => $data['password']
+        );
+        $this->db->where('id', $id);
+        $this->db->update('users', $db_data_user);
+
+        $this->db->from('users');
+        $this->db->where('id', $id);
+
+        $applicant_id = $this->db->get()->row()->applicant_id;
+
+
+        $db_data_applicant = array(
+            'name'           => $data['fullname'],
+            'last_education' => $data['last_education'],
+            'pob'            => $data['pob'],
+            'dob'            => date($data['dob'])
+        );
+
+        if ($this->input->post('cv')) {
+            $cv_file_name = $this->upload_cv($data['username']);
+            $db_data_applicant['cv_path'] = base_url().'./uploads/'.$cv_file_name; 
+        }
+
+        $this->db->update('applicants', $db_data_applicant);
+        
+        $this->db->trans_complete();
     }
 
     function delete_applicant($id) {
