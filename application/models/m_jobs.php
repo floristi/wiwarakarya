@@ -45,7 +45,6 @@ class M_Jobs extends CI_Model {
     }
 
     function update_job($id) {
-        $this->
     }
 }
 ?>
