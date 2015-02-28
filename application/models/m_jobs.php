@@ -45,6 +45,13 @@ class M_Jobs extends CI_Model {
     }
 
     function update_job($id) {
+
+        $this->db->trans_start();
+
+        
+        
+        $this->db->trans_complete();
+
     }
 }
 ?>
