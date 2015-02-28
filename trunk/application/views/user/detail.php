@@ -87,7 +87,15 @@
 										CV
 									</div>
 									<div class="col-sm-10">
-										<?php echo $user->cv_path;?>
+										<?php 
+											if($user->cv_path == "0")
+												echo "No CV";
+											else{
+												?>
+											<a href="<?php echo $user->cv_path;?>" target="_blank">View CV</a>
+										<?php
+											}
+										?>
 									</div>
 								</div>
 								<div class="col-sm-2">
