@@ -1,5 +1,5 @@
 TODO:
-1. Upload CV Registrasi => database eror
+1. Upload CV Registrasi => DONE, by flo
 2. Dashboard User: 
 	- History Lowongan,
 	- Inbox
