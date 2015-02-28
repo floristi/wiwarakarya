@@ -31,7 +31,7 @@ class C_User extends CI_Controller {
 	}
 
 	public function update($id) {
-		if ($id === null) {
+		if ($id == null) {
 			redirect('c_user');
 		}
 		if ($this->input->post('submit')) {
@@ -47,6 +47,7 @@ class C_User extends CI_Controller {
 			);
 			$this->m_user->update_applicant($id, $user_data);
 			//redirect('c_user');
+			return;
 		}
 
 		$data['user'] = $this->m_user->get_profile_by_id($id);
@@ -56,7 +57,7 @@ class C_User extends CI_Controller {
 	}
 
 	public function delete($id) {
-		if ($id === null) {
+		if ($id == null) {
 			redirect('c_user');
 		}
 		$this->m_user->delete_applicant($id);	
