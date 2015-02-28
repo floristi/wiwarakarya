@@ -2,7 +2,7 @@
         <div class="main">
             <!-- start registration -->
             <div class="registration">
-                <div class="registration_left">
+                <div>
                     <!-- [if IE]
                         < link rel='stylesheet' type='text/css' href='ie.css'/>
                         [endif] -->
@@ -72,72 +72,94 @@
 
                              
                         <div id="company-container">
-                            <?php echo  form_open("c_company/create_company"); ?>
-                              <fieldset>
-                                <div>
-                                    <label>
+                            <?php 
+									
+									$attributes = array('class' => 'form-horizontal');
+									echo  form_open("c_company/create_company", $attributes); 
+							?>
+                              
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Company Name:
-                                        <input name="name" placeholder="name" type="text" required autofocus maxlength="50" required value="<?php if(isset($name)) echo $name; ?>">
-                                        
-                                        
                                     </label>
-                                </div>
-
-                                <div>
-                                    <label>
-                                        Address:
+									<div class="col-sm-10">
+										<input name="name" class="form-control" placeholder="name" type="text" required autofocus maxlength="50" required value="<?php if(isset($name)) echo $name; ?>">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">
+										Address:
                                     </label>
-                                    <textarea name="address" placeholder="address" class="form-control" required value="<?php if(isset($address)) echo $address; ?>"></textarea>
-                                </div>
-                                <div>
-                                    <label>
+									<div class="col-sm-10">
+										<textarea name="address" placeholder="address" class="form-control" required value="<?php if(isset($address)) echo $address; ?>"></textarea>
+									</div>
+								</div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         City:
                                     </label>
-                                    <input name="city" placeholder="city" type="text" required autofocus required value="<?php if(isset($city)) echo $city; ?>">
-                                </div>
-                                <div>
-                                    <label>
+									<div class="col-sm-10">
+										<input name="city" placeholder="city" class="form-control" type="text" required autofocus required value="<?php if(isset($city)) echo $city; ?>">
+									</div>
+								</div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Phone Number:
                                     </label>
-                                    <input name="phone" placeholder="phone number" type="text" required autofocus required value="<?php if(isset($phone)) echo $phone; ?>">
-                                </div>
-                                <div>
-                                    <label>
+									<div class="col-sm-10">
+										<input name="phone" class="form-control" placeholder="phone number" type="text" required autofocus required value="<?php if(isset($phone)) echo $phone; ?>">
+									</div>
+								</div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Contact Name:
                                     </label>
-                                    <input name="contact_name" placeholder="contact name" type="text" required autofocus required value="<?php if(isset($contact_name)) echo $contact_name; ?>">
-                                </div>
-                                <div>
-                                    <label>
+									<div class="col-sm-10">
+										<input name="contact_name" class="form-control" placeholder="contact name" type="text" required autofocus required value="<?php if(isset($contact_name)) echo $contact_name; ?>">
+									</div>
+								</div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Description:
                                     </label>
-                                    <textarea name="description" placeholder="description" type="text" required autofocus required value="<?php if(isset($description)) echo $description; ?>"></textarea>
-                                </div>
-                                <div>
-                                    <div>
-                                    <label>
+									<div class="col-sm-10">
+										<textarea name="description" class="form-control" placeholder="description" type="text" required autofocus required value="<?php if(isset($description)) echo $description; ?>"></textarea>
+									</div>
+								</div>
+                                <div class="form-group">
+                                   <label class="col-sm-2 control-label">
                                         Website:
                                     </label>
-                                    <input name="website" placeholder="web" type="text" required autofocus required value="<?php if(isset($web)) echo $web; ?>">
-                                </div>
-                                <div>
-                                    <label>
+									<div class="col-sm-10">
+										<input name="website" class="col-sm-10" placeholder="web" type="text" required autofocus required value="<?php if(isset($web)) echo $web; ?>">
+									</div>
+								</div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Email:
                                     </label>
-                                    <input name="email" placeholder="email" type="email" required autofocus required value="<?php if(isset($email)) echo $email; ?>">
-                                </div>
-                                <div>
-                                    <label>
+									<div class="col-sm-10">
+										<input name="email" placeholder="email" type="email" required autofocus required value="<?php if(isset($email)) echo $email; ?>">
+									</div>
+								</div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         Photo:
                                     </label>
-                                    <input type="file" autofocus>
+									<div class="col-sm-10">
+										<input type="file" autofocus name="photo" class="form-control" enctype="multipart/form-data" autofocus>
+									</div>
                                 </div>
 
-                                <div class="form-actions">
-                                    <input class="btn btn-primary" type="submit" value="Create Company" name="submit">
-                                    <a href="<?php echo site_url('c_company'); ?>"><input class="btn btn-danger" type="button" value="Batal" name="batal" onclick="return confirm Action('Apakah anda yakin tidak ingin menambahkan company baru?');"></a>
-                                </div>
-                                </fieldset>
+                                <div class="pull-right">
+									<div style="display:inline-block">
+										<input type="submit" value="Create Company" name="submit">
+                                    </div>
+									<div style="display: inline-block">
+										<a href="<?php echo site_url('c_company'); ?>"><input class="btns" type="button" value="Batal" name="batal" onclick="return confirm Action('Apakah anda yakin tidak ingin menambahkan company baru?');"></a>
+									</div>
+								</div>
+                                
                             <?php echo form_close(); ?>
                         </div>
                     </div>
