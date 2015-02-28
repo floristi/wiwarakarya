@@ -35,9 +35,7 @@ class M_User extends CI_Model {
             'pob'            => $data['pob'],
             'dob'            => date($data['dob']),
             'is_premium'     => false
-        );  
-
-        echo $db_data_applicant['dob'];
+        );
 
         $this->db->insert('applicants', $db_data_applicant);
         $applicant_id = $this->db->insert_id();
@@ -52,6 +50,10 @@ class M_User extends CI_Model {
         $this->db->insert('users', $db_data_user);
         
         $this->db->trans_complete();
+    }
+
+    function update_applicant($id) {
+
     }
 
     function delete_applicant($id) {
