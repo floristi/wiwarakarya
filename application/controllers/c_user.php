@@ -46,8 +46,8 @@ class C_User extends CI_Controller {
 									$this->input->post('dob-date')
 			);
 			$this->m_user->update_applicant($id, $user_data);
-			//redirect('c_user');
-			return;
+			redirect('c_user');
+			
 		}
 
 		$data['user'] = $this->m_user->get_profile_by_id($id);
