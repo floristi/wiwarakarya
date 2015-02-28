@@ -10,7 +10,7 @@ class M_Jobs extends CI_Model {
     }
     
     function get_all_jobs() {
-        $query = "SELECT u.id, u.username, u.password, a.name, a.last_education, a.cv_path, a.pob, a.dob ".
+        $query = "SELECT ".
                 "FROM jobs j JOIN companies c ON j.";
         $result = $this->db->query($query)->result();
         $ret = array();
@@ -18,6 +18,11 @@ class M_Jobs extends CI_Model {
             $ret[] = $data;
         }
         return $ret;
+    }
+
+    function get_job($id) {
+        $this->db->where('id', $id);
+        return $this->db->get('jobs')->row();
     }
 
     function create_job() {
@@ -48,10 +53,32 @@ class M_Jobs extends CI_Model {
 
         $this->db->trans_start();
 
-        // $db_data_job =
+        $db_data_job = array(
+            'name'              => $this->input->post('name'),
+            'description'       => $this->input->post('description'),
+            'position'          => $this->input->post('position'),
+            'position_category' => $this->input->post('position_category'),
+            'due_date'          => $this->input->post('due-year').'-'.
+                                   $this->input->post('due-month').'-'.
+                                   $this->input->post('due-day').' '.
+                                   $this->input->post('due-hour').' '.
+                                   $this->input->post('due-minute'),
+            'major'             => $this->input->post('major'),
+            'last_education'    => $this->input->post('last_education'),
+            'salary'            => $this->input->post('salary'),
+            'tnc'               => $this->input->post('tnc'),
+            'created_by'        => $this->input->post('created_by')
+        );
+
+        $this->db->where('id', $db_data_job);
+        $this->db->update('jobs', $db_data_job);
 
         $this->db->trans_complete();
+    }
 
+    function delete_job($id) {
+        $this->db->where('id', $id);
+        $this->db->delete('events');
     }
 }
 ?>

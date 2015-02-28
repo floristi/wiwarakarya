@@ -12,11 +12,27 @@ class C_jobs extends CI_Controller {
 	public function create() {
 		if ($this->input->post('submit')) {
 			$this->m_jobs->create_job();
-			// redirect('c_jobs');
 		}
 
-		$data['main_content'] = 'jobs/add_edit';
-		$this->load->view('jobs/create');
+		$data['main_content'] = 'jobs/create';
+		$this->load->view('layout/template', $data);
+	}
+
+	public function update($id) {
+		if ($this->input->post('submit')) {
+			$this->m_jobs->update_job($id);
+		}
+
+		$data['main_content'] = 'jobs/update';
+		$this->load->view('layout/template', $data);
+	}
+
+	public function delete($id) {
+ 		$this->m_jobs->delete($id);
+	}
+
+	public function detail($id) {
+		$this->m_jobs->get_job($id);
 	}
 
 }

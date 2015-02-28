@@ -1,3 +1,5 @@
+<?php var_dump($user); ?>
+
     <div class="container">
         <div class="main">
             <!-- start registration -->
@@ -53,7 +55,7 @@
                         <div id="user-container">
                             <?php 
 									$attributes = array('class' => 'form-horizontal');
-									echo form_open_multipart('c_user/update/'.$user->id, $attributes); 
+									echo form_open_multipart('c_user/update/'.$user->id, $attributes);
 								?>
 							
                                
