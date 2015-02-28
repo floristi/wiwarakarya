@@ -26,8 +26,6 @@ class M_User extends CI_Model {
         $this->db->trans_start();
        // $foto = $this->input->post('upload');
 
-        $cv_file_name = $this->upload_cv($data['username']);
-
         $db_data_applicant = array(
             'name'           => $data['fullname'],
             'last_education' => $data['last_education'],
@@ -36,6 +34,11 @@ class M_User extends CI_Model {
             'dob'            => date($data['dob']),
             'is_premium'     => false
         );
+
+        if ($this->upload->data('cv')) {
+            $cv_file_name = $this->upload_cv($data['username']);
+            $db_data_applicant['cv_path'] = base_url().'uploads/'.$cv_file_name;
+        }
 
         $this->db->insert('applicants', $db_data_applicant);
         $applicant_id = $this->db->insert_id();
