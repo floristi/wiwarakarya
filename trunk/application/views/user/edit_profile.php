@@ -192,7 +192,7 @@
                                 </div>
 								<div class="pull-right">
 									<div style="display:inline-block">
-										<input type="submit" name="submit" value="create an account" accept=".pdf">
+										<input type="submit" name="submit" value="update" accept=".pdf">
 									</div>
 									<div style="display: inline-block">
 										<a class="btns" href="<?php echo site_url(); ?>">Cancel</a>
