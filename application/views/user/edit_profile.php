@@ -53,7 +53,7 @@
                         <div id="user-container">
                             <?php 
 									$attributes = array('class' => 'form-horizontal');
-									echo form_open_multipart('c_user/update', $attributes); 
+									echo form_open_multipart('c_user/update/'.$user->id, $attributes); 
 								?>
 							
                                
