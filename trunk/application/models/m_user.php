@@ -52,7 +52,7 @@ class M_User extends CI_Model {
         $this->db->trans_complete();
     }
 
-    function update_applicant($id) {
+    function update_applicant($id, $data) {
         $this->db->trans_start();
         // $foto = $this->input->post('upload');
 
