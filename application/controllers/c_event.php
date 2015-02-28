@@ -9,7 +9,6 @@ class c_event extends CI_Controller{
 	public function index() 
 	{
 		$data['events'] = $this->m_event->get_all_event();
-		print_r($data['events']);
 		$data['main_content'] = 'event/event_view';
 		$this->load->view('layout/template', $data);
 	}
