@@ -7,9 +7,8 @@ class M_User extends CI_Model {
 
     public function __construct() {
         parent::__construct();
-
-        $this->cv_path = realpath(APPPATH . '../uploads/cv');
-        $this->cv_path_url = base_url() . 'uploads/cv/';
+        $this->load->database();
+        date_default_timezone_set("Asia/Jakarta");
     }
     
     function get_all_applicants() {
@@ -25,13 +24,14 @@ class M_User extends CI_Model {
 
     function insert_applicant($data) {
         $this->db->trans_start();
+       // $foto = $this->input->post('upload');
 
-        $cv_url = $this->upload_cv();
+        $cv_file_name = $this->upload_cv($data['username']);
 
         $db_data_applicant = array(
             'name'           => $data['fullname'],
             'last_education' => $data['last_education'],
-            'cv_path'        => $this->cv_path_url . $cv_url,
+            'cv_path'        => base_url().'./uploads/'.$cv_file_name,
             'pob'            => $data['pob'],
             'dob'            => date($data['dob']),
             'is_premium'     => false
@@ -86,14 +86,17 @@ class M_User extends CI_Model {
 		return $role;
 	}
 
-    function upload_cv() {
+    function upload_cv($username) {
         $config = array(
             'allowed_types' => 'pdf',
-            'upload_path' => $this->cv_path,
-            'max_size' => 2000
+            'upload_path' => './uploads/',
+            'max_size' => 2000,
+            'file_name' => 'cv_'.$username,
+            'overwrite' => true
         );
 
-        $this->load->library('upload', $config);
+        $this->load->library('upload');
+        $this->upload->initialize($config);
         $this->upload->do_upload('cv');
         $cv_data = $this->upload->data('cv');
         echo $this->upload->display_errors();
