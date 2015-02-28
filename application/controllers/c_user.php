@@ -49,8 +49,7 @@ class C_User extends CI_Controller {
 			redirect('c_user');
 		}
 
-		$data['main_content'] = 'user/add_edit';
-		$data['mode']         = 'edit';
+		$data['main_content'] = 'user/edit_profile';
 		$this->load->view('layout/template', $data);
 	}
 
