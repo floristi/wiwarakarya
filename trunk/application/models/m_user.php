@@ -144,6 +144,14 @@ class M_User extends CI_Model {
         return $result;
     }
 
+    function get_profile_by_id($id){
+        $query = "SELECT u.id, u.username, u.password, a.name, a.last_education, a.cv_path, a.pob, a.dob ".
+                "FROM users u JOIN applicants a ON u.role = 'APPLICANT' AND u.applicant_id = a.id " .
+                "WHERE u.id = '" . $id . "'";
+        $result = $this->db->query($query)->row();
+        return $result;
+    }
+
 }
 
 ?>
