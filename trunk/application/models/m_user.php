@@ -31,7 +31,7 @@ class M_User extends CI_Model {
         $db_data_applicant = array(
             'name'           => $data['fullname'],
             'last_education' => $data['last_education'],
-            'cv_path'        => base_url().'./uploads/'.$cv_file_name,
+            'cv_path'        => base_url().'uploads/'.$cv_file_name,
             'pob'            => $data['pob'],
             'dob'            => date($data['dob']),
             'is_premium'     => false
@@ -67,7 +67,6 @@ class M_User extends CI_Model {
 
         $applicant_id = $this->db->get()->row()->applicant_id;
 
-
         $db_data_applicant = array(
             'name'           => $data['fullname'],
             'last_education' => $data['last_education'],
@@ -75,9 +74,9 @@ class M_User extends CI_Model {
             'dob'            => date($data['dob'])
         );
 
-        if ($this->input->post('cv')) {
+        if ($this->upload->data('cv')) {
             $cv_file_name = $this->upload_cv($data['username']);
-            $db_data_applicant['cv_path'] = base_url().'./uploads/'.$cv_file_name; 
+            $db_data_applicant['cv_path'] = base_url().'uploads/'.$cv_file_name;
         }
 
         $this->db->where('id', $applicant_id);
@@ -127,7 +126,6 @@ class M_User extends CI_Model {
             'overwrite' => true
         );
 
-        $this->load->library('upload');
         $this->upload->initialize($config);
         $this->upload->do_upload('cv');
         $cv_data = $this->upload->data('cv');

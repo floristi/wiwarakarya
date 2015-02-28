@@ -1,5 +1,3 @@
-<?php var_dump($user); ?>
-
     <div class="container">
         <div class="main">
             <!-- start registration -->
@@ -58,7 +56,7 @@
 									echo form_open_multipart('c_user/update/'.$user->id, $attributes);
 								?>
 							
-                               
+                               	<input type="hidden" name="username" value="<?php echo $user->username; ?>"></input>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">
                                         Password:                                        
