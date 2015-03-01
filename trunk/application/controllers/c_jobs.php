@@ -11,7 +11,7 @@ class C_jobs extends CI_Controller {
 		$data['main_content'] = 'job/list';
 		$this->load->view('layout/template', $data);
 
-		print_r($data['jobs']);
+		//print_r($data['jobs']);
 	}
 
 	public function create() {
@@ -21,7 +21,7 @@ class C_jobs extends CI_Controller {
 		}
 
 		$data['companies'] = $this->m_company->get_list_company();
-		$data['main_content'] = 'jobs/create';
+		$data['main_content'] = 'job/create';
 		$this->load->view('layout/template', $data);
 	}
 
@@ -32,7 +32,7 @@ class C_jobs extends CI_Controller {
 		}
 
 		$data['companies'] = $this->m_company->get_list_company();
-		$data['main_content'] = 'jobs/update';
+		$data['main_content'] = 'job/update';
 		$this->load->view('layout/template', $data);
 	}
 
