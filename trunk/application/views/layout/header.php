@@ -57,6 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	</head>
 	<body>
+
 		<!-- header -->
 		<div class="header">
 			<div class="top_bg">
@@ -151,3 +152,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		</script>
 		<!-- script-for-nav -->
+		<?php if ($this->session->flashdata('notification-message')): ?>
+		<div class="container">
+		<div id="notification" class="alert alert-<?php echo $this->session->flashdata('notification-type'); ?> alert-dismissible" role="alert" style="text-align:center">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong><?php echo $this->session->flashdata('notification-message'); ?></strong>
+		</div>
+		</div>
+		<?php endif;?>

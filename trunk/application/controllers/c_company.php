@@ -60,7 +60,7 @@ class C_Company extends CI_Controller{
 
 	function delete() {
 		if ($this->input->post('id')) {
-			$this->m_company->delete();
+			$this->m_company->delete($this->input->post('id'));
 		}
 	}
 }
