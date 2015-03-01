@@ -37,7 +37,7 @@ class c_event extends CI_Controller{
 
 	function delete_event() {
 		if ($this->input->post('id')) {
-            $this->m_event->delete_event($id);
+            $this->m_event->delete_event($this->input->post('id'));
 		}
 	}
 

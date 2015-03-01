@@ -110,7 +110,6 @@ class M_company extends CI_Model {
 
 
     function delete_company($id){
-
         $name = $this->input->post('name');
         $city = $this->input->post('city');
         $stat = array('status' => 'false');

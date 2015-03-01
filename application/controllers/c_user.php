@@ -7,6 +7,8 @@ class C_User extends CI_Controller {
 	public function index() {
 		$data['users'] = $this->m_user->get_all_applicants();
 		$data['main_content'] = 'user/list';
+		$this->session->set_flashdata('notification-type', 'success');
+		$this->session->set_flashdata('notification-message', 'test notification');
 		$this->load->view('layout/template', $data);
 	}
 
@@ -56,11 +58,9 @@ class C_User extends CI_Controller {
 	}
 
 	public function delete($id) {
-		if ($id == null) {
-			redirect('c_user');
+		if ($this->input->post('id')) {
+			$this->m_user->delete_applicant($this->input->post('id'));	
 		}
-		$this->m_user->delete_applicant($id);	
-		redirect('c_user');
 	}
 
 	public function login() {
