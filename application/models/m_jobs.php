@@ -7,7 +7,9 @@ class M_Jobs extends CI_Model {
     }
     
     function get_all_jobs() {
-        return $this->db->get('jobs')->result();
+        $query = "SELECT j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name ".
+                 "FROM jobs j JOIN companies c ON j.created_by = c.id";
+        return $this->db->query($query)->result();
     }
 
     function get_job($id) {
@@ -25,7 +27,7 @@ class M_Jobs extends CI_Model {
 			'due_date'    		=> $this->input->post('due-year').'-'.
 								   $this->input->post('due-month').'-'.
 								   $this->input->post('due-day').' '.
-								   $this->input->post('due-hour').' '.
+								   $this->input->post('due-hour').':'.
 								   $this->input->post('due-minute'),
 			'major'				=> $this->input->post('major'),
 			'last_education'	=> $this->input->post('last_education'),
@@ -48,7 +50,7 @@ class M_Jobs extends CI_Model {
             'due_date'          => $this->input->post('due-year').'-'.
                                    $this->input->post('due-month').'-'.
                                    $this->input->post('due-day').' '.
-                                   $this->input->post('due-hour').' '.
+                                   $this->input->post('due-hour').':'.
                                    $this->input->post('due-minute'),
             'major'             => $this->input->post('major'),
             'last_education'    => $this->input->post('last_education'),
