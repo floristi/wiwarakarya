@@ -59,10 +59,15 @@
 		<div class="clearfix"></div>	
 	</div>		
 </div>
-<?php var_dump($events);?>
+
 <div class="featured">
 	<div class="container" style="padding-top: 3em;">
 		<h3>Events Detail</h3>
+		<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'ADMIN') {?>
+		<div class="col-sm-12">
+			<a class="btn btn-primary pull-right buttonpadding" href="<?php echo site_url('c_event/create_event'); ?>">Create Event</a>
+		</div>
+		<?php }?>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 			<?php $i = 1; foreach($events as $event) : ?>
 			  <div class="panel panel-default">
@@ -73,14 +78,60 @@
 					</a>
 				  </h4>
 				</div>
-				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading<?php echo $i;?>">
+				<div id="collapse<?php echo $i;?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<?php echo $i;?>">
 					<div class="panel-body">
 						<div class="container">
 							<div class="col-sm-9">
-								Tes
+								<div class="col-sm-2">
+									<label>Name</label>
+								</div>
+								<div class="col-sm-10">
+									<?php echo $event->name; ?>
+								</div>
+								<div class="col-sm-2">
+									<label>Description</label>
+								</div>
+								<div class="col-sm-10">
+									<?php echo $event->description; ?>
+								</div>
+								<div class="col-sm-2">
+									<label>Location</label>
+								</div>
+								<div class="col-sm-10">
+									<?php echo $event->location; ?>
+								</div>
+								<div class="col-sm-2">
+									<label>Time</label>
+								</div>
+								<div class="col-sm-10">
+									<?php echo $event->time; ?>
+								</div>
+								<div class="col-sm-2">
+									<label>Quota</label>
+								</div>
+								<div class="col-sm-10">
+									<?php echo $event->quota; ?>
+								</div>
+								<div class="col-sm-2">
+									<label>Speaker</label>
+								</div>
+								<div class="col-sm-10">
+									<?php echo $event->speaker; ?>
+								</div>
+								<div class="col-sm-2">
+									<label>Price</label>
+								</div>
+								<div class="col-sm-10">
+									<?php echo $event->price; ?>
+								</div>
 							</div>
 							<div class="col-sm-3">
-								Tes
+								<label>Organized by:</label><h4><?php echo $event->company_name; ?></h4>
+								<br />
+								<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'ADMIN') {?>
+									<a  class="btn btn-info" href="<?php echo site_url('c_event/edit_event/'.$event->id); ?>">Edit</a>
+									<a class="btn btn-warning" href="<?php echo site_url('c_event/delete_event/'.$event->id); ?>">Delete</a>
+								<?php }?>
 							</div>
 						</div>
 					</div>
@@ -93,21 +144,3 @@
 
 <script src="<?php echo base_url();?>resources/js/moment.js" type="text/javascript"></script>
 <script src="<?php echo base_url();?>resources/js/jquery.eventCalendar.min.js" type="text/javascript"></script>
-
-<a style="font-size:2em;margin-bottom:20px" href="<?php echo site_url('c_event/create_event'); ?>">+create</a>
-<br/>
-<?php foreach($events as $event) { ?>
-	
-Name: <?php echo $event->name; ?>	<br/>
-Description: <?php echo $event->description; ?> <br/>
-Location: <?php echo $event->location; ?> <br/>
-Time: <?php echo $event->time; ?> <br/>
-Quota: <?php echo $event->quota; ?> <br/>
-Speaker: <?php echo $event->speaker; ?> <br/>
-Price: <?php echo $event->price; ?> <br/>
-Organized by: <?php echo $event->company_name; ?> <br/>
-<a style="font-size:1em;margin-bottom:20px" href="<?php echo site_url('c_event/edit_event/'.$event->id); ?>">Edit</a>
-<a style="font-size:1em;margin-bottom:20px" href="<?php echo site_url('c_event/delete_event/'.$event->id); ?>">Delete</a>
-<hr/>
-
-<?php } ?>
