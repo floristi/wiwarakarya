@@ -59,74 +59,34 @@
 		<div class="clearfix"></div>	
 	</div>		
 </div>
-
+<?php var_dump($events);?>
 <div class="featured">
 	<div class="container" style="padding-top: 3em;">
 		<h3>Events Detail</h3>
 		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		  <div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingOne">
-			  <h4 class="panel-title">
-				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-				  Event 1
-				</a>
-			  </h4>
-			</div>
-			<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-				<div class="panel-body">
-					<div class="container">
-						<div class="col-sm-9">
-							Tes
-						</div>
-						<div class="col-sm-3">
-							Tes
+			<?php $i = 1; foreach($events as $event) : ?>
+			  <div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading<?php echo $i;?>">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $i;?>" aria-expanded="true" aria-controls="collapse<?php echo $i;?>">
+					  <?php echo $event->name;?>
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading<?php echo $i;?>">
+					<div class="panel-body">
+						<div class="container">
+							<div class="col-sm-9">
+								Tes
+							</div>
+							<div class="col-sm-3">
+								Tes
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		  </div>
-		  <div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingTwo">
-			  <h4 class="panel-title">
-				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-				  Event 2
-				</a>
-			  </h4>
-			</div>
-			<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-				<div class="panel-body">
-					<div class="container">
-						<div class="col-sm-9">
-							Tes
-						</div>
-						<div class="col-sm-3">
-							Tes
-						</div>
-					</div>
-				</div>
-			</div>
-		  </div>
-		  <div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingThree">
-			  <h4 class="panel-title">
-				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-				  Event 3
-				</a>
-			  </h4>
-			</div>
-			<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-				<div class="panel-body">
-					<div class="container">
-						<div class="col-sm-9">
-							Tes
-						</div>
-						<div class="col-sm-3">
-							Tes
-						</div>
-					</div>
-				</div>
-			</div>
-		  </div>
+			  </div>
+			<?php $i++; endforeach;?>
 		</div>
 	</div>
 </div>

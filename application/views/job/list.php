@@ -1,4 +1,4 @@
-<?php var_dump($jobs);?>
+<?php //var_dump($jobs);?>
 <div class="container">
     <div class="main">
 		<div class="company_list">
