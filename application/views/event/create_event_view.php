@@ -108,13 +108,11 @@
                                 Organize by:
                             </label>
                             <div class="controls col-sm-3">
-                              <select id="e2" name="company" class="input-xlarge form-control" name="company_id">
+                              <select id="e2" name="company_id" class="input-xlarge form-control">
                                 <option value=""> - please select company - </option>
-                                <?php 
-                                  foreach ($companies as $row) {
-                                    echo "<option value='$row->name'>". $row->name . "</option>";
-                                  }
-                                ?>
+                                <?php foreach ($companies as $row): ?>
+                                <option value="<?php echo $row->id; ?>"><?php echo $row->name;?></option>
+                                <?php endforeach;?>
                               </select>
 							</div>
 							

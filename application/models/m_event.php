@@ -43,6 +43,8 @@ class m_event extends CI_Model {
             //'status' => 'TRUE'
         );
 
+        print_r($data);
+
         if ($this->db->insert('wiwarakarya.events', $data)) {
             $confirm = "Event <b>". $name . "</b> successfully added";
             $this->session->set_userdata('notification', $confirm);
