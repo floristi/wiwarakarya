@@ -10,8 +10,6 @@ class C_jobs extends CI_Controller {
 		$data['companies'] = $this->m_company->get_list_company();
 		$data['main_content'] = 'job/list';
 		$this->load->view('layout/template', $data);
-
-		//print_r($data['jobs']);
 	}
 
 	public function create() {
@@ -25,14 +23,15 @@ class C_jobs extends CI_Controller {
 		$this->load->view('layout/template', $data);
 	}
 
-	public function update($id) {
+	public function edit($id) {
 		if ($this->input->post('submit')) {
 			$this->m_jobs->update_job($id);
 			redirect('c_jobs');
 		}
 
+        $data['job'] = $this->m_jobs->get_job($id);
 		$data['companies'] = $this->m_company->get_list_company();
-		$data['main_content'] = 'job/update';
+		$data['main_content'] = 'job/edit';
 		$this->load->view('layout/template', $data);
 	}
 

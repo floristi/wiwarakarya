@@ -48,7 +48,6 @@
 
                         })();
                     </script>
-					<?php var_dump($query);?>
                     <div class="registration_form">
                         <h1>Update Company</h1>
 						<p>Form untuk mengganti data berkaitan dengan Company</p>

@@ -1,4 +1,3 @@
-<?php //var_dump($jobs);?>
 <div class="container">
     <div class="main">
 		<div class="company_list">
@@ -42,7 +41,7 @@
 						<?php $i = 1; foreach($jobs as $job) : ?>
 						<tr>
 							<td><?php echo $i; ?> </td>
-							<td><?php echo $job->name; ?> </td>
+							<td><a href="<?php echo site_url('c_jobs/edit/' . $job->id); ?>"><?php echo $job->name; ?> </a></td>
 							<td><?php echo $job->position; ?> </td>
 							<td><?php echo $job->position_category; ?> </td>
 							<td><?php echo $job->due_date; ?> </td>
