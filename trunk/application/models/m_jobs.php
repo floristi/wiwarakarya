@@ -86,4 +86,3 @@ class M_Jobs extends CI_Model {
         $this->db->insert('applications', $db_data_application);
     }
 }
-?>

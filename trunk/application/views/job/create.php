@@ -187,7 +187,7 @@
                                         TNC:
                                     </label>
 									<div class="col-sm-10">
-										<input name="tnc" placeholder="tnc" type="text" required autofocus required >
+										<textarea name="tnc" placeholder="tnc" type="text" required autofocus required ></textarea>
 									</div>
 								</div>
                                 <div class="form-group">
@@ -195,7 +195,11 @@
                                         Company:
                                     </label>
 									<div class="col-sm-10">
-										<input type="text" autofocus name="photo" class="form-control" autofocus>
+										<select type="text" autofocus name="created_by" class="form-control" autofocus>
+                                            <?php foreach($companies as $company): ?>
+                                            <option value="<?php echo $company->id; ?>"><?php echo $company->name; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
 									</div>
                                 </div>
 
