@@ -7,7 +7,7 @@ class M_Jobs extends CI_Model {
     }
     
     function get_all_jobs() {
-        $query = "SELECT j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name ".
+        $query = "SELECT j.id, j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name ".
                  "FROM jobs j JOIN companies c ON j.created_by = c.id";
         return $this->db->query($query)->result();
     }
