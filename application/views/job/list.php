@@ -3,7 +3,9 @@
 		<div class="company_list">
 			<div class="col-sm-12">
 				<h1>List Jobs</h1>
-				<a class="btn btn-primary pull-right buttonpadding" href="<?php echo site_url('c_jobs/create'); ?>">Create Jobs</a>
+				<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'ADMIN'){?>
+					<a class="btn btn-primary pull-right buttonpadding" href="<?php echo site_url('c_jobs/create'); ?>">Create Jobs</a>
+				<?php } ?>
 			</div>
 			<div class="col-sm-12">
     	
