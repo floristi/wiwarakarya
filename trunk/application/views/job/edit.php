@@ -135,13 +135,13 @@
 										<span></span>
 										<select class="tanggal form-control inline-group" name="due-hour">
 											<?php for($i=0; $i<=23; $i++): ?>
-											<option value="<?php echo $i; ?>" <?php if(date('G', $due_date) == $i) echo 'selected="selected"'; ?>><?php echo $i; ?></option>
+											<option value="<?php echo $i; ?>" <?php if(date('G', $due_date) == $i) echo 'selected="selected"'; ?>><?php echo sprintf('%02d', $i); ?></option>
 											<?php endfor; ?>
 										</select>
 										<span>:</span>
 										<select class="tanggal form-control inline-group" name="due-minute">
                                             <?php for($i=0; $i<=59; $i++): ?>
-                                            <option value="<?php echo $i; ?>" <?php if(date('i', $due_date) == $i) echo 'selected="selected"'; ?>><?php echo $i; ?></option>
+                                            <option value="<?php echo $i; ?>" <?php if(date('i', $due_date) == $i) echo 'selected="selected"'; ?>><?php echo sprintf('%02d', $i); ?></option>
                                             <?php endfor; ?>
 										</select>
 									</div>

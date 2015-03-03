@@ -33,13 +33,18 @@ class m_event extends CI_Model {
         }
 
         $data = array (
-            'name' => ucwords($name), 
+            'name'        => ucwords($name), 
             'description' => ucfirst($this->input->post('description')),
-            'location' => ucwords($this->input->post('location')),
-            'quota' => $this->input->post('quota'),
-            'speaker' => ucwords($this->input->post('speaker')),
-            'price' => $this->input->post('price'),
-            'created_by' => $this->input->post('company_id')
+            'location'    => ucwords($this->input->post('location')),
+            'quota'       => $this->input->post('quota'),
+            'speaker'     => ucwords($this->input->post('speaker')),
+            'price'       => $this->input->post('price'),
+            'created_by'  => $this->input->post('company_id'),
+            'time'    => $this->input->post('time-year').'-'.
+                             $this->input->post('time-month').'-'.
+                             $this->input->post('time-day').' '.
+                             $this->input->post('time-hour').':'.
+                             $this->input->post('time-minute')
             //'status' => 'TRUE'
         );
 
@@ -65,7 +70,12 @@ class m_event extends CI_Model {
             'quota' => $this->input->post('quota'),
             'speaker' => ucwords($this->input->post('speaker')),
             'price' => $this->input->post('price'),
-            'created_by' => $this->input->post('company_id')
+            'created_by' => $this->input->post('company_id'),
+            'time'    => $this->input->post('time-year').'-'.
+                             $this->input->post('time-month').'-'.
+                             $this->input->post('time-day').' '.
+                             $this->input->post('time-hour').':'.
+                             $this->input->post('time-minute')
             //'status' => 'TRUE'
         );
 
