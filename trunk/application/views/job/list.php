@@ -41,7 +41,15 @@
 						<?php $i = 1; foreach($jobs as $job) : ?>
 						<tr>
 							<td><?php echo $i; ?> </td>
-							<td><a href="<?php echo site_url('c_jobs/edit/' . $job->id); ?>"><?php echo $job->name; ?> </a></td>
+							<td><a href="<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'ADMIN'){
+													echo site_url('c_jobs/edit/' . $job->id);
+												}
+												else if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT'){
+													echo site_url('c_jobs/detail/' . $job->id);
+												} ?>">
+									<?php echo $job->name; ?> 
+								</a>
+							</td>
 							<td><?php echo $job->position; ?> </td>
 							<td><?php echo $job->position_category; ?> </td>
 							<td><?php echo $job->due_date; ?> </td>
