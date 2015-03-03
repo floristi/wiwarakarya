@@ -75,6 +75,53 @@
 								<textarea name="location" placeholder="location" class="form-control" rows="3" type="text" required value="<?php if(isset($location)) echo $location; ?>"></textarea>
 							</div>
 						</div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                Date/Time:
+                            </label>
+                            <div class="col-sm-10">
+                                <select class="tanggal form-control inline-group " name="time-day">
+                                    <?php
+                                        for($i=1; $i<=31; $i++)
+                                            echo("<option value='".$i."'>".$i."</option>");
+                                    ?>
+                                </select>
+                                <select class="bulan form-control inline-group " name="time-month">
+                                    <option value="1">Januari</option>
+                                    <option value="2">Februari</option>
+                                    <option value="3">Maret</option>
+                                    <option value="4">April</option>
+                                    <option value="5">Mei</option>
+                                    <option value="6">Juni</option>
+                                    <option value="7">Juli</option>
+                                    <option value="8">Agustus</option>
+                                    <option value="9">September</option>
+                                    <option value="10">Oktober</option>
+                                    <option value="11">November</option>
+                                    <option value="12">Desember</option>
+                                </select>
+                                <select class="tahun form-control inline-group" name="time-year">
+                                    <?php
+                                    for($i=1970; $i<=2015; $i++)
+                                        echo("<option value='".$i."'>".$i."</option>");
+                                    ?>
+                                </select>
+                                <span></span>
+                                <select class="tanggal form-control inline-group" name="time-hour">
+                                    <?php
+                                    for($i=0; $i<=23; $i++)
+                                        echo("<option value='".$i."'>".sprintf('%02d', $i)."</option>");
+                                    ?>
+                                </select>
+                                <span>:</span>
+                                <select class="tanggal form-control inline-group" name="time-minute">
+                                    <?php
+                                    for($i=0; $i<=59; $i++)
+                                        echo("<option value='".$i."'>".sprintf('%02d', $i)."</option>");
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
                         
                         <div class="form-group">
                             <label class="col-sm-2 control-label">

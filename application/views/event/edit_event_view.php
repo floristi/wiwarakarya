@@ -75,7 +75,50 @@
 								<textarea name="location" class="form-control" placeholder="location" class="text" required><?php if(isset($event->location)) echo $event->location; ?></textarea>
 							</div>
 						</div>
-                        
+                        <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        Date/Time:
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <?php $event_time = (new DateTime($event->time))->getTimestamp(); ?>
+                                        <select class="tanggal form-control inline-group " name="time-day" value="<?php echo date('j', $event_time); ?>">
+                                            <?php for($i=1; $i<=31; $i++): ?>
+                                            <option value="<?php echo $i; ?>" <?php if(date('j', $event_time) == $i) echo 'selected="selected"'; ?>><?php echo $i ?></option>;
+                                            <?php endfor; ?>
+                                        </select>
+                                        <select class="bulan form-control inline-group " name="time-month">
+                                            <option value="1" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Januari</option>
+                                            <option value="2" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Februari</option>
+                                            <option value="3" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Maret</option>
+                                            <option value="4" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>April</option>
+                                            <option value="5" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Mei</option>
+                                            <option value="6" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Juni</option>
+                                            <option value="7" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Juli</option>
+                                            <option value="8" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Agustus</option>
+                                            <option value="9" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>September</option>
+                                            <option value="10" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Oktober</option>
+                                            <option value="11" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>November</option>
+                                            <option value="12" <?php if(date('n', $event_time)) echo 'selected="selected"'; ?>>Desember</option>
+                                        </select>
+                                        <select class="tahun form-control inline-group" name="time-year">
+                                            <?php for($i=1970; $i<=2015; $i++): ?>
+                                                <option value="<?php echo $i; ?>" <?php if(date('Y', $event_time) == $i) echo 'selected="selected"'; ?>><?php echo $i; ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                        <span></span>
+                                        <select class="tanggal form-control inline-group" name="time-hour">
+                                            <?php for($i=0; $i<=23; $i++): ?>
+                                            <option value="<?php echo $i; ?>" <?php if(date('G', $event_time) == $i) echo 'selected="selected"'; ?>><?php echo sprintf('%02d', $i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                        <span>:</span>
+                                        <select class="tanggal form-control inline-group" name="time-minute">
+                                            <?php for($i=0; $i<=59; $i++): ?>
+                                            <option value="<?php echo $i; ?>" <?php if(date('i', $event_time) == $i) echo 'selected="selected"'; ?>><?php echo sprintf('%02d', $i); ?></option>
+                                            <?php endfor; ?>
+                                        </select>
+                                    </div>
+                                </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">
                                 Quota:

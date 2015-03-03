@@ -136,15 +136,15 @@
 										<span></span>
 										<select class="tanggal form-control inline-group" name="due-hour">
 											<?php
-											for($i=1; $i<=24; $i++)
-												echo("<option value='".$i."'>".$i."</option>");
+											for($i=0; $i<=23; $i++)
+												echo("<option value='".$i."'>".sprintf('%02d', $i)."</option>");
 											?>
 										</select>
 										<span>:</span>
 										<select class="tanggal form-control inline-group" name="due-minute">
 											<?php
 											for($i=0; $i<=59; $i++)
-												echo("<option value='".$i."'>".$i."</option>");
+												echo("<option value='".$i."'>".sprintf('%02d', $i)."</option>");
 											?>
 										</select>
 									</div>
