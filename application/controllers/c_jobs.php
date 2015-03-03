@@ -48,7 +48,10 @@ class C_jobs extends CI_Controller {
 	}
 
 	public function detail($id) {
-		$this->m_jobs->get_job($id);
+		$data['job'] = $this->m_jobs->get_job($id);
+		$data['main_content'] = 'job/apply';
+		$this->load->view('layout/template', $data);
+		
 	}
 
 	public function apply_job() {
