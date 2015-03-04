@@ -75,9 +75,8 @@
                             <?php 
 									
 									$attributes = array('class' => 'form-horizontal');
-									echo form_open("c_jobs/edit/" . $job->id, $attributes);
+									echo form_open("c_jobs/apply/".$job->id, $attributes);
 							?>
-                              
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">
                                         Job Name:
@@ -152,8 +151,15 @@
                                         Company:
                                     </label>
 									<div class="col-sm-10">
-										<?php echo $job->company_name;?>
-									</div>
+                                        <p class="control-label">
+                                            <?php foreach($companies as $company) {
+                                                if ($company->id == $job->created_by) {
+                                                    echo $company->name;
+                                                }
+                                            }
+                                            ?>
+                                        </p>
+                                    </div>
                                 </div>
 
                                 <div class="pull-right">
