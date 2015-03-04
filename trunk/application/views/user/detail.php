@@ -110,12 +110,12 @@
 									  <div class="panel panel-default">
 										<div class="panel-heading" role="tab" id="headingLow<?php echo $i;?>">
 										  <h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordionLow" href="#collapseOneLow" aria-expanded="true" aria-controls="collapseOneLow">
+											<a data-toggle="collapse" data-parent="#accordionLow" href="#collapseLow<?php echo $i;?>" aria-expanded="true" aria-controls="collapseLow<?php echo $i;?>">
 											  <?php echo $job->name;?>
 											</a>
 										  </h4>
 										</div>
-										<div id="collapseOneLow" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOneLow">
+										<div id="collapseLow<?php echo $i;?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingLow<?php echo $i;?>">
 											<div class="panel-body">
 												<div class="container">
 													<div class="col-sm-6">
@@ -190,70 +190,72 @@
 									<div class="lowongan">
 										<h4>Events Terdaftar</h4>
 									</div>
-									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+									<div class="panel-group" id="accordions" role="tablist" aria-multiselectable="true">
+									  <?php $j=1; foreach($registered_events as $event) : ?>
 									  <div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingOneEvent">
+										<div class="panel-heading" role="tab" id="headingEvent<?php echo $j;?>">
 										  <h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion" href="#collapseOneEvent" aria-expanded="true" aria-controls="collapseOneEvent">
-											  Lowongan 1
+											<a data-toggle="collapse" data-parent="#accordions" href="#collapseEvent<?php echo $j;?>" aria-expanded="true" aria-controls="collapseEvent<?php echo $j;?>">
+											  <?php echo $event->name;?>
 											</a>
 										  </h4>
 										</div>
-										<div id="collapseOneEvent" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneEvent">
+										<div id="collapseEvent<?php echo $j;?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEvent<?php echo $j;?>">
 											<div class="panel-body">
 												<div class="container">
-													<div class="col-sm-9">
-														Tes
+													<div class="col-sm-6">
+														<div class="col-sm-4">
+															<label class="control-label">Name</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $event->name; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Description</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $event->description; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Location</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $event->location; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Date</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $event->time; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Main Speaker</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $event->speaker; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Price</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $event->price; ?>
+														</div>
+														
+														
 													</div>
-													<div class="col-sm-3">
-														Tes
+													<div class="col-sm-6">
+														<div class="col-sm-12">
+															<label class="control-label">Organized By</label>
+														</div>
+														<div class="col-sm-12">
+															<h4><?php echo $event->created_by; ?></h4>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									  </div>
-									  <div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingTwoEvent">
-										  <h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwoEvent" aria-expanded="false" aria-controls="collapseTwoEvent">
-											  Lowongan 2
-											</a>
-										  </h4>
-										</div>
-										<div id="collapseTwoEvent" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoEvent">
-											<div class="panel-body">
-												<div class="container">
-													<div class="col-sm-9">
-														Tes
-													</div>
-													<div class="col-sm-3">
-														Tes
-													</div>
-												</div>
-											</div>
-										</div>
-									  </div>
-									  <div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingThreeEvent">
-										  <h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThreeEvent" aria-expanded="false" aria-controls="collapseThreeEvent">
-											  Lowongan 3
-											</a>
-										  </h4>
-										</div>
-										<div id="collapseThreeEvent" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeEvent">
-											<div class="panel-body">
-												<div class="container">
-													<div class="col-sm-9">
-														Tes
-													</div>
-													<div class="col-sm-3">
-														Tes
-													</div>
-												</div>
-											</div>
-										</div>
-									  </div>
+									  <?php $j++; endforeach;?>
 									</div>
 								</div>
                             

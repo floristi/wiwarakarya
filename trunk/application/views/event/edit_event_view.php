@@ -148,7 +148,7 @@
                         
                         <div class="form-group">
                             <label class="col-sm-2 control-label">
-                                Organize by:
+                                Organized by:
                             </label>
                             <div class="controls col-sm-10">
                               <select id="e2" name="company_id" class="input-xlarge form-control">

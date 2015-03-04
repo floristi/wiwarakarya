@@ -41,11 +41,14 @@ class c_event extends CI_Controller{
 		}
 	}
 
+
 	function join_event() {
 		if ($this->input->post('submit')) {
 			$this->m_event->join_event();
 			redirect('c_event');
+
 		}
+		
 	}
 }
 ?>
