@@ -115,9 +115,17 @@ class M_User extends CI_Model {
 
         if ($query->num_rows() > 0) {
             $role = $query->row()->role;
+            $id = $query->row()->id;
+            if ($role == 'ADMIN' || $role == 'APPLICANT') {
+                $data = array(
+                    'username' => $username,
+                    'is_logged_in' => true,
+                    'role' => $role,
+                    'id' => $id
+                );
+                $this->session->set_userdata($data);
+            }
         }
-		
-		return $role;
 	}
 
     function upload_cv($username) {

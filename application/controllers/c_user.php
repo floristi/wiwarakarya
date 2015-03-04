@@ -67,16 +67,7 @@ class C_User extends CI_Controller {
 		if ($this->input->post('submit')) {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
-			$role = $this->m_user->login($username, $password);
-
-			if ($role == 'ADMIN' || $role == 'APPLICANT') {
-				$data = array(
-					'username' => $username,
-					'is_logged_in' => true,
-					'role' => $role
-				);
-				$this->session->set_userdata($data);
-			}
+			$this->m_user->login($username, $password);
 		}
 		redirect('navigation');
 	}

@@ -47,17 +47,19 @@ class C_jobs extends CI_Controller {
 		}
 	}
 
-	public function detail($id) {
+	public function apply($id) {
+		if ($this->input->post('submit')) {
+			$this->m_jobs->apply_job($id);
+			redirect('c_jobs');
+		}
 		$data['job'] = $this->m_jobs->get_job($id);
+		$data['companies'] = $this->m_company->get_list_company();
 		$data['main_content'] = 'job/apply';
 		$this->load->view('layout/template', $data);
-		
 	}
 
-	public function apply_job() {
-		if ($this->input->post('submit')) {
-			$this->m_jobs->apply_job();
-		}
+	public function list_applied_jobs($id) {
+
 	}
 
 }

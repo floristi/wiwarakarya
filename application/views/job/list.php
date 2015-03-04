@@ -47,7 +47,7 @@
 													echo site_url('c_jobs/edit/' . $job->id);
 												}
 												else if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT'){
-													echo site_url('c_jobs/detail/' . $job->id);
+													echo site_url('c_jobs/apply/' . $job->id);
 												} ?>">
 									<?php echo $job->name; ?> 
 								</a>

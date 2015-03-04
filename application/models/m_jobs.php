@@ -75,14 +75,37 @@ class M_Jobs extends CI_Model {
         $this->db->update('jobs', array('jobs', array('status' => $status)));
     }
 
-    function apply_job() {
+    function apply_job($id) {
         $db_data_application = array(
-            'applicant_id' => $this->input->post('applicant_id'),
-            'company_id' => $this->input->post('company_id'),
+            'applicant_id' => $this->session->userdata('id'),
+            'job_id' => $id,
             'status' => false,
-            'created_at' => new Date()
+            'created_at' => date('Y-m-d HH:MM')
         );
 
         $this->db->insert('applications', $db_data_application);
+    }
+
+    function get_applied_jobs() {
+        $id = $this->session->userdata('id');
+
+        $query = "SELECT j.id, ".
+                        "j.name, ".
+                        "j.position, ".
+                        "j.position_category, ".
+                        "j.due_date, ".
+                        "j.major, ".
+                        "j.last_education, ".
+                        "j.salary, ".
+                        "j.tnc, ".
+                        "c.id as company_id, ".
+                        "c.name as company_name ".
+                 "FROM applications a ".
+                 "JOIN jobs j ON a.job_id = j.id ".
+                 "JOIN users u ON a.applicant_id = u.id ".
+                 "JOIN companies c ON j.created_by = c.id ".
+                 "WHERE a.applicant_id = " . $id;
+
+        return $this->db->query($query)->result();       
     }
 }
