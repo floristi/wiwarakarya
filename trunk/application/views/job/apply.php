@@ -151,6 +151,7 @@
                                         Company:
                                     </label>
 									<div class="col-sm-10">
+
                                         <p class="control-label">
                                             <?php foreach($companies as $company) {
                                                 if ($company->id == $job->created_by) {
@@ -160,6 +161,7 @@
                                             ?>
                                         </p>
                                     </div>
+
                                 </div>
 
                                 <div class="pull-right">

@@ -131,7 +131,9 @@
 								<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'ADMIN') {?>
 									<a  class="btn btn-info" href="<?php echo site_url('c_event/edit_event/'.$event->id); ?>">Edit</a>
 									<a class="btn btn-warning" href="<?php echo site_url('c_event/delete_event/'.$event->id); ?>">Delete</a>
-								<?php }?>
+								<?php } else if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {?>
+									<a  class="btn btn-info" href="<?php echo site_url('c_event/register_event/'.$event->id); ?>">Register</a>
+								<?php } ?>
 							</div>
 						</div>
 					</div>

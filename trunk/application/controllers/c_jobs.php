@@ -58,8 +58,10 @@ class C_jobs extends CI_Controller {
 		$this->load->view('layout/template', $data);
 	}
 
-	public function list_applied_jobs($id) {
-
+	
+	
+	public function list_applied_jobs() {
+		return $this->m_jobs->get_applied_jobs();
 	}
 
 }
