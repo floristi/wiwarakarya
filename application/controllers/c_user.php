@@ -76,6 +76,9 @@ class C_User extends CI_Controller {
 
 	public function detail($username) {
 		$data['user'] = $this->m_user->get_profile($username);
+		//$id_user = $data['user']->id;
+		//echo $id_user;
+		$data['jobs'] = $this->m_jobs->get_applied_jobs();
 		$data['main_content'] = 'user/detail';
 		$this->load->view('layout/template', $data);
 	}

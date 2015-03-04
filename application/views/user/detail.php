@@ -104,70 +104,86 @@
 									<div class="lowongan">
 										<h4>Lowongan Terdaftar</h4>
 									</div>
+									
 									<div class="panel-group" id="accordionLow" role="tablist" aria-multiselectable="true">
+									<?php $i=1; foreach($jobs as $job) : ?>
 									  <div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingOneLow">
+										<div class="panel-heading" role="tab" id="headingLow<?php echo $i;?>">
 										  <h4 class="panel-title">
 											<a data-toggle="collapse" data-parent="#accordionLow" href="#collapseOneLow" aria-expanded="true" aria-controls="collapseOneLow">
-											  Lowongan 1
+											  <?php echo $job->name;?>
 											</a>
 										  </h4>
 										</div>
-										<div id="collapseOneLow" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOneLow">
+										<div id="collapseOneLow" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOneLow">
 											<div class="panel-body">
 												<div class="container">
-													<div class="col-sm-9">
-														Tes
+													<div class="col-sm-6">
+														<div class="col-sm-4">
+															<label class="control-label">Name</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $job->name; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Position</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $job->position; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Position Category</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $job->position_category; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Due Date</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $job->due_date; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Major</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $job->major; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Last Education</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $job->last_education; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">Salary</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $job->salary; ?>
+														</div>
+														<div class="col-sm-4">
+															<label class="control-label">TNC</label>
+														</div>
+														<div class="col-sm-8">
+															<?php echo $job->tnc; ?>
+														</div>
+														
+														
 													</div>
-													<div class="col-sm-3">
-														Tes
+													<div class="col-sm-6">
+														<div class="col-sm-12">
+															<label class="control-label">Provided By</label>
+														</div>
+														<div class="col-sm-12">
+															<h4><?php echo $job->company_name; ?></h4>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									  </div>
-									  <div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingTwoLow">
-										  <h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordionLow" href="#collapseTwoLow" aria-expanded="false" aria-controls="collapseTwoLow">
-											  Lowongan 2
-											</a>
-										  </h4>
-										</div>
-										<div id="collapseTwoLow" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwoLow">
-											<div class="panel-body">
-												<div class="container">
-													<div class="col-sm-9">
-														Tes
-													</div>
-													<div class="col-sm-3">
-														Tes
-													</div>
-												</div>
-											</div>
-										</div>
-									  </div>
-									  <div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingThreeLow">
-										  <h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordionLow" href="#collapseThreeLow" aria-expanded="false" aria-controls="collapseThreeLow">
-											  Lowongan 3
-											</a>
-										  </h4>
-										</div>
-										<div id="collapseThreeLow" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThreeLow">
-											<div class="panel-body">
-												<div class="container">
-													<div class="col-sm-9">
-														Tes
-													</div>
-													<div class="col-sm-3">
-														Tes
-													</div>
-												</div>
-											</div>
-										</div>
-									  </div>
+									  <?php $i++; endforeach;?>
+									  
 									</div>
 								</div>
 								
