@@ -25,7 +25,8 @@ class Navigation extends CI_Controller {
     }
 	
 	public function index() {
-		$this->load->view('welcome_message');
+		$data['events'] = $this->m_event->get_all_event();
+		$this->load->view('welcome_message', $data);
 	}
 	
 	public function info_career()
