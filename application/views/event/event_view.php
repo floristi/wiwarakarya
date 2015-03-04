@@ -132,8 +132,20 @@
 									<a  class="btn btn-info" href="<?php echo site_url('c_event/edit_event/'.$event->id); ?>">Edit</a>
 									<a class="btn btn-warning" href="<?php echo site_url('c_event/delete_event/'.$event->id); ?>">Delete</a>
 								<?php } else if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {?>
-									<a  class="btn btn-info" href="<?php echo site_url('c_event/register_event/'.$event->id); ?>">Register</a>
+									<?php
+										$attributes = array('class' => 'form-horizontal');	
+										echo form_open("c_event/join_event/", $attributes); 
+									?>
+										<input type="hidden" name="event_id" value="<?php echo $event->id; ?>" />
+										<div class="form-actions" style="display:inline-block">
+											<div style="display:inline-block">
+												<input class="btn btn-info" type="submit" value="Join Event" name="submit">
+											</div>
+										</div>
+									<?php form_close() ?>
 								<?php } ?>
+								<div>
+								</div>
 							</div>
 						</div>
 					</div>

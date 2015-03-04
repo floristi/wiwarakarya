@@ -183,7 +183,6 @@
 										</div>
 									  </div>
 									  <?php $i++; endforeach;?>
-									  
 									</div>
 								</div>
 								

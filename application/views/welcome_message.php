@@ -47,16 +47,16 @@
 			<div class="container">
 				<div class="col-md-6 chuk">
 						<div class="blanc-info">
-							<h3>ANNOUNCEMENT</h3>
-							<h4>Lorem Ipsum Dolor Sit Amet</h4>
-							<a class="show" href="#">SHOW ME MORE</a>
+							<h3><?php echo $events[0]->name; ?></h3>
+							<h4><?php echo $events[0]->description; ?></h4>
+							<a class="show" href="<?php echo site_url('c_event/'); ?>">SHOW ME MORE</a>
 						</div>
 				</div>
 				<div class="col-md-6 blanc">
 						<div class="blanc-info">
-							<h3>EVENT CALENDAR</h3>
-							<h4>Job Fair in Jakarta</h4>
-							<a class="show" href="#">SHOW ME MORE</a>
+							<h3><?php echo $events[1]->name; ?></h3>
+							<h4><?php echo $events[1]->description; ?></h4>
+							<a class="show" href="<?php echo site_url('c_event/'); ?>">SHOW ME MORE</a>
 						</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -67,6 +67,7 @@
 		<div class="featured">
 			<div class="container">
 				<div class="col-md-9">
+					<!--
 					<div class="biseller-info">
 						<h3 class="new-models">Premium Careers</h3>
 						<ul id="flexiselDemo3">
@@ -103,6 +104,7 @@
 							</li>
 						</ul>
 					</div>	
+					-->
 
 					<script type="text/javascript">
 						 $(window).load(function() {
