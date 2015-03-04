@@ -248,7 +248,7 @@
 															<label class="control-label">Organized By</label>
 														</div>
 														<div class="col-sm-12">
-															<h4><?php echo $event->created_by; ?></h4>
+															<h4><?php echo $event->company_name; ?></h4>
 														</div>
 													</div>
 												</div>

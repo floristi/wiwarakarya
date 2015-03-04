@@ -107,16 +107,14 @@ class m_event extends CI_Model {
 
     function get_joined_events_by_user_id() {
 		$user_id = $this->session->userdata('id');
-	
-        $event_registrations = $this->db->get_where('event_registrations', array('user_id' => $user_id))->result();
 
-        $events = array();
-        foreach($event_registrations as $event_registration) {
-            $this->db->where('id', $event_registration->event_id);
-            $events[] = $this->db->get('events')->row();
-        }
+        $query = "SELECT e.*, c.name as company_name ".
+            "FROM event_registrations er ".
+            "JOIN events e ON er.event_id = e.id ".
+            "JOIN companies c ON e.created_by = c.id ".
+            "WHERE er.user_id = " . $user_id;
 
-        return $events;
+        return $this->db->query($query)->result();
     }
 }
 ?>
