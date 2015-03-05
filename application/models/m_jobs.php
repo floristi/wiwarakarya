@@ -15,6 +15,7 @@ class M_Jobs extends CI_Model {
 	 function get_six_jobs() {
         $query = "SELECT j.id, j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name ".
                  "FROM jobs j LEFT JOIN companies c ON j.created_by = c.id LIMIT 6";
+		$this->db->group_by("j.id");
 		$this->db->order_by("j.id", "desc"); 
         return $this->db->query($query)->result();
     }
