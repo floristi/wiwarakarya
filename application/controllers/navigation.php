@@ -26,6 +26,7 @@ class Navigation extends CI_Controller {
 	
 	public function index() {
 		$data['events'] = $this->m_event->get_all_event();
+		$data['jobs'] = $this->m_jobs->get_six_jobs();
 		$this->load->view('welcome_message', $data);
 	}
 	

@@ -134,41 +134,42 @@
 						});
 					</script>
 					<script type="text/javascript" src="<?php echo base_url();?>resources/js/jquery.flexisel.js"></script>
-			
+					
 					<div class="best-seller">
 						<div class="biseller-info">
 							<h3 class="new-models">Newest Careers</h3>
 							<ul id="flexiselDemo1">
-								<li>
-									<div class="biseller-column">
-										<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
-										<a href="#"><i class="new"></i></a>
-										<div class="biseller-name">
-											<h4>Database Admin</h4>
-											<p>PT. Lululu</p>
+								<?php if(count($jobs) >= 3){?>
+									<?php for ($i = 0; $i < 3 ; $i++) : ?>
+									<li>
+										<div class="biseller-column">
+											<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
+											<a href="<?php echo site_url('c_jobs/apply/'.$jobs[$i]->id);?>"><i class="new"></i></a>
+											<div class="biseller-name">
+												<h4><?php echo $jobs[$i]->company_name;?></h4>
+												<p><?php echo $jobs[$i]->position;?></p>
+											</div>
 										</div>
-									</div>
-								</li>
-								<li>
-									<div class="biseller-column">
-										<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
-										<a href="#"><i class="new"></i></a>
-										<div class="biseller-name">
-											<h4>IT Ops</h4>
-											<p>PT. Lololo</p>
+									</li>
+								<?php 
+									endfor;
+								} 
+								else{
+									for ($i = 0; $i < count($jobs) ; $i++) :
+								?>
+									<li>
+										<div class="biseller-column">
+											<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
+											<a href="#"><i class="new"></i></a>
+											<div class="biseller-name">
+												<h4><?php echo $jobs[$i]->company_name;?></h4>
+												<p><?php echo $jobs[$i]->position;?></p>
+											</div>
 										</div>
-									</div>
-								</li>
-								<li>
-									<div class="biseller-column">
-										<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
-										<a href="#"><i class="new"></i></a>
-										<div class="biseller-name">
-											<h4>System Analyst</h4>
-											<p>PT. Lalala</p>
-										</div>
-									</div>
-								</li>
+									</li>
+								<?php 
+									endfor;
+								}?>
 							</ul>
 						</div>
 					</div>
@@ -202,7 +203,7 @@
 					</script>
 					<script type="text/javascript">
 						$(window).load(function() {
-							$("#flexiselDemo5").flexisel({
+							$("#flexiselDemo2").flexisel({
 								visibleItems: 3,
 								animationSpeed: 1000,
 								autoPlay: true,
@@ -230,38 +231,24 @@
 				
 					<div class="best-seller">
 						<div class="biseller-info">
-							<ul id="flexiselDemo5">
+							<ul id="flexiselDemo2">
+								<?php if(count($jobs) > 3){
+									for($i = 3; $i < count($jobs); $i++):
+									?>
 								<li>
-									<div class="biseller-column1">
+									<div class="biseller-column">
 										<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
-										<a href="#"><i class="new"></i></a>
+										<a href="<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {echo site_url('c_jobs/apply/'.$jobs[$i]->id);} else echo "#";?>"><i class="new"></i></a>
 										<div class="biseller-name">
-											<h4>Something</h4>
-											<p>PT. Whatever</p>
+											<h4><?php echo $jobs[$i]->company_name;?></h4>
+											<p><?php echo $jobs[$i]->position;?></p>
 										</div>
 									</div>
 								</li>
-								<li>
-									<div class="biseller-column1">
-										<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
-										<a href="#"><i class="new"></i></a>
-										<div class="biseller-name">
-											<h4>Someone</h4>
-											<p>PT. Whenever</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="biseller-column1">
-										<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
-										<a href="#"><i class="new"></i></a>
-										<div class="biseller-name">
-											<h4>Somewhere</h4>
-											<p>PT. Whoever</p>
-										</div>
-								
-									</div>
-								</li>
+								<?php 
+									endfor;
+									}
+								?>
 							</ul>
 						</div>
 					</div>
