@@ -1,3 +1,4 @@
+<?php print_r($jobs);?>
 <?php $this->load->view('layout/header');?>
 		
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -144,7 +145,7 @@
 									<li>
 										<div class="biseller-column">
 											<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
-											<a href="<?php echo site_url('c_jobs/apply/'.$jobs[$i]->id);?>"><i class="new"></i></a>
+											<a href="<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {echo site_url('c_jobs/apply/'.$jobs[$i]->id);} else echo "#";?>"><i class="new"></i></a>
 											<div class="biseller-name">
 												<h4><?php echo $jobs[$i]->company_name;?></h4>
 												<p><?php echo $jobs[$i]->position;?></p>
@@ -160,7 +161,7 @@
 									<li>
 										<div class="biseller-column">
 											<img src="<?php echo base_url();?>resources/images/1_1.jpg" class="img-responsive" alt="">
-											<a href="#"><i class="new"></i></a>
+											<a href="<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {echo site_url('c_jobs/apply/'.$jobs[$i]->id);} else echo "#";?>"><i class="new"></i></a>
 											<div class="biseller-name">
 												<h4><?php echo $jobs[$i]->company_name;?></h4>
 												<p><?php echo $jobs[$i]->position;?></p>
