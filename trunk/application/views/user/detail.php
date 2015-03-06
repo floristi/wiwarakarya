@@ -177,6 +177,24 @@
 														<div class="col-sm-12">
 															<h4><?php echo $job->company_name; ?></h4>
 														</div>
+
+														<br/>
+
+														<div class="col-sm-12">
+															<label class="control-label">Status</label>
+														</div>
+														<div class="col-sm-12">
+															<h4><?php echo $job->status; ?></h4>
+														</div>
+
+														<br/>
+
+														<div class="col-sm-12">
+															<label class="control-label">Applied at</label>
+														</div>
+														<div class="col-sm-12">
+															<h4><?php echo $job->applied_at; ?></h4>
+														</div>
 													</div>
 												</div>
 											</div>

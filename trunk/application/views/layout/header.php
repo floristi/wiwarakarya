@@ -130,13 +130,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'ADMIN') { ?>
 								<li><a class="color2" href="<?php echo site_url('c_user');?>">Users</a></li>
 								<li><a class="color2" href="<?php echo site_url('c_company');?>">Companies</a></li>
+								<li><a class="color2" href="<?php echo site_url('c_jobs/list_applications');?>">Applications</a></li>
 							<?php } ?>
 							<li><a class="color2" href="<?php echo site_url('c_jobs');?>">Info Careers</a></li>
 							<li><a class="color2" href="<?php echo site_url('c_event');?>">Events</a></li>
-							<li><a class="color2" href="<?php echo site_url('navigation/payment');?>">Payment</a></li>
+							<!-- <li><a class="color2" href="<?php echo site_url('navigation/payment');?>">Payment</a></li> -->
 							<li><a class="color2" href="<?php echo site_url('navigation/gallery');?>">Gallery</a></li>
 							<li><a class="color2" href="<?php echo site_url('navigation/about_us');?>">About Us</a></li>
-							<li class="pull-right"><a class="color8" href="<?php echo site_url('navigation/find_job');?>">Find a Job</a></li>
+							<!-- <li class="pull-right"><a class="color8" href="<?php echo site_url('navigation/find_job');?>">Find a Job</a></li> -->
 							<div class="clearfix"> </div>
 
 					</ul>

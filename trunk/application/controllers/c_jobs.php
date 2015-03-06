@@ -29,7 +29,7 @@ class C_jobs extends CI_Controller {
 			redirect('c_jobs');
 		}
 
-        $data['job'] = $this->m_jobs->get_job($id);
+      	$data['job'] = $this->m_jobs->get_job($id);
 		$data['companies'] = $this->m_company->get_list_company();
 		$data['main_content'] = 'job/edit';
 		$this->load->view('layout/template', $data);
@@ -42,8 +42,9 @@ class C_jobs extends CI_Controller {
 	}
 
 	public function set_job_status() {
-		if ($this->input->post($id)) {
+		if ($this->input->post('id')) {
 			$this->m_jobs->set_job_status($this->input->post('id'), $this->input->post('status'));
+			redirect('c_jobs/list_applications');
 		}
 	}
 
@@ -57,11 +58,16 @@ class C_jobs extends CI_Controller {
 		$data['main_content'] = 'job/apply';
 		$this->load->view('layout/template', $data);
 	}
-
-	
 	
 	public function list_applied_jobs() {
 		return $this->m_jobs->get_applied_jobs();
+	}
+
+	public function list_applications() {
+		$data['applications'] = $this->m_jobs->get_all_applications();
+		$data['statuses'] = array('APPLIED', 'PASSED', 'REJECTED', 'ENDED');
+		$data['main_content'] ='job/application_list';
+		$this->load->view('layout/template', $data);
 	}
 
 }

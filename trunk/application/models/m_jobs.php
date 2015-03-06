@@ -14,9 +14,7 @@ class M_Jobs extends CI_Model {
 	
 	 function get_six_jobs() {
         $query = "SELECT j.id, j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name ".
-                 "FROM jobs j LEFT JOIN companies c ON j.created_by = c.id LIMIT 6";
-		$this->db->group_by("j.id");
-		$this->db->order_by("j.id", "desc"); 
+                 "FROM jobs j LEFT JOIN companies c ON j.created_by = c.id ORDER BY j.id desc LIMIT 6";
         return $this->db->query($query)->result();
     }
 
@@ -78,18 +76,20 @@ class M_Jobs extends CI_Model {
         $this->db->delete('jobs');
     }
 
-    function set_status_job($id, $status) {
+    function set_job_status($id, $status) {
         $this->db->where('id', $id);
-        $this->db->update('jobs', array('jobs', array('status' => $status)));
+        $this->db->update('applications', array('status' => $status));
     }
 
     function apply_job($id) {
         $db_data_application = array(
             'applicant_id' => $this->session->userdata('id'),
             'job_id' => $id,
-            'status' => false,
-            'created_at' => date('Y-m-d HH:MM')
+            'status' => 'APPLIED',
+            'created_at' => date('Y-m-d H:i')
         );
+
+        print_r($db_data_application);
 
         $this->db->insert('applications', $db_data_application);
     }
@@ -107,12 +107,25 @@ class M_Jobs extends CI_Model {
                         "j.salary, ".
                         "j.tnc, ".
                         "c.id as company_id, ".
-                        "c.name as company_name ".
+                        "c.name as company_name, ".
+                        "a.status as status, ".
+                        "a.created_at as applied_at ".
                  "FROM applications a ".
                  "JOIN jobs j ON a.job_id = j.id ".
                  "JOIN users u ON a.applicant_id = u.id ".
                  "JOIN companies c ON j.created_by = c.id ".
                  "WHERE a.applicant_id = " . $id;
+
+        return $this->db->query($query)->result();       
+    }
+
+    function get_all_applications() {
+        $query = "SELECT a.id, a.created_at, ap.name as applicant_name, j.name as job_name, c.name as company_name, a.status ".
+            "FROM applications a ".
+            "JOIN jobs j ON a.job_id = j.id ".
+            "JOIN users u ON a.applicant_id = u.id ".
+            "JOIN companies c ON j.created_by = c.id ".
+            "JOIN applicants ap ON u.applicant_id = ap.id";
 
         return $this->db->query($query)->result();       
     }
