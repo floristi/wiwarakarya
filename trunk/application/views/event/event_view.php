@@ -110,7 +110,7 @@
 									<label>Quota</label>
 								</div>
 								<div class="col-sm-10">
-									<?php echo $event->quota; ?>
+									<?php echo $event->quota_remaining . ' / ' . $event->quota; ?>
 								</div>
 								<div class="col-sm-2">
 									<label>Speaker</label>

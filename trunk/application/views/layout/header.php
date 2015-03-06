@@ -153,11 +153,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		</script>
 		<!-- script-for-nav -->
-		<?php if ($this->session->flashdata('notification-message')): ?>
-		<div class="container">
-		<div id="notification" class="alert alert-<?php echo $this->session->flashdata('notification-type'); ?> alert-dismissible" role="alert" style="text-align:center">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong><?php echo $this->session->flashdata('notification-message'); ?></strong>
-		</div>
-		</div>
-		<?php endif;?>
+
+		<!-- script for notification -->
+		<?php if (isset($notifications)): ?>
+		<script type="text/javascript" src="<?php echo base_url();?>resources/js/notify.min.js" ?>></script>
+		<script>
+			<?php foreach ($notifications as $notification): ?>
+			$.notify("<?php echo $notification['message']; ?>", "<?php echo $notification['type']; ?>");
+			<?php endforeach; ?>
+		</script>
+		<?php endif; ?>

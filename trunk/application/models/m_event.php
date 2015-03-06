@@ -11,11 +11,7 @@ class m_event extends CI_Model {
         $query = "SELECT e.*, c.name as company_name ".
                 "FROM events e JOIN companies c ON e.created_by = c.id";
         $result = $this->db->query($query)->result();
-        $ret = array();
-        foreach ($result as $data) {
-            $ret[] = $data;
-        }
-        return $ret;
+        return $result;
     }
 
     function get_data_event($id) {
@@ -37,18 +33,17 @@ class m_event extends CI_Model {
             'description' => ucfirst($this->input->post('description')),
             'location'    => ucwords($this->input->post('location')),
             'quota'       => $this->input->post('quota'),
+            'quota_remaining'=> $this->input->post('quota'),
             'speaker'     => ucwords($this->input->post('speaker')),
             'price'       => $this->input->post('price'),
             'created_by'  => $this->input->post('company_id'),
-            'time'    => $this->input->post('time-year').'-'.
+            'time'        => $this->input->post('time-year').'-'.
                              $this->input->post('time-month').'-'.
                              $this->input->post('time-day').' '.
                              $this->input->post('time-hour').':'.
                              $this->input->post('time-minute')
             //'status' => 'TRUE'
         );
-
-        print_r($data);
 
         if ($this->db->insert('wiwarakarya.events', $data)) {
             $confirm = "Event <b>". $name . "</b> successfully added";
@@ -97,12 +92,21 @@ class m_event extends CI_Model {
     }
 
     function join_event() {
+        $this->db->trans_start();
+
         $data = array(
             'user_id' => $this->session->userdata('id'),
             'event_id' => $this->input->post('event_id')
         );
 
         $this->db->insert('event_registrations', $data);
+
+        $quota_remaining = $this->db->get_where('events', array('id' => $this->input->post('event_id')))->row()->quota_remaining;
+
+        $this->db->where('id', $this->input->post('event_id'));
+        $this->db->update('events', array('quota_remaining' => $quota_remaining - 1));
+
+        $this->db->trans_complete();
     }
 
     function get_joined_events_by_user_id() {

@@ -14,7 +14,7 @@ class M_Jobs extends CI_Model {
 	
 	 function get_six_jobs() {
         $query = "SELECT j.id, j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name ".
-                 "FROM jobs j LEFT JOIN companies c ON j.created_by = c.id ORDER BY j.id desc LIMIT 6";
+                 "FROM jobs j JOIN companies c ON j.created_by = c.id ORDER BY j.id desc LIMIT 6";
         return $this->db->query($query)->result();
     }
 
@@ -88,8 +88,6 @@ class M_Jobs extends CI_Model {
             'status' => 'APPLIED',
             'created_at' => date('Y-m-d H:i')
         );
-
-        print_r($db_data_application);
 
         $this->db->insert('applications', $db_data_application);
     }
