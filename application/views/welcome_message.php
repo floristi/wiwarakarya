@@ -1,4 +1,4 @@
-<?php print_r($jobs);?>
+<?php print_r($jobs); ?>
 <?php $this->load->view('layout/header');?>
 		
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
