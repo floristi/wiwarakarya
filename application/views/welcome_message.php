@@ -296,7 +296,7 @@
 							</select>
 
 							<!-- <a class="show-more" style="width:100%" href="#">search</a> -->
-							<input type="submit" value="Create Company" name="submit" class="btn btn-danger" style="width:100%">
+							<input type="submit" value="Search" name="submit" class="btn btn-danger" style="width:100%">
 							<?php form_close(); ?>
 
 							<!-- <select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"metro"}'>

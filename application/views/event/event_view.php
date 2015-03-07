@@ -1,4 +1,4 @@
-<?php print_r($events); ?>
+<!-- <?php print_r($events); ?> -->
 <div class="featured">
 	<div class="container" style="padding-top: 3em;">
 		<div class="col-md-9">
@@ -18,7 +18,7 @@
 							<h1>Big Title Here</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed malesuada sapien. Nulla aliquam orci nec massa hendrerit tincidunt. Donec in sollicitudin lacus. Curabitur et faucibus nulla. Maecenas sit amet semper libero, in iaculis felis. Aliquam erat volutpat. Donec sollicitudin turpis eget tortor tincidunt euismod.</p>
 							<a class="show-more" href="#">SHOW ME MORE</a>
-							
+
 						</div>
 					</div>
 					<div class="item">
@@ -27,10 +27,10 @@
 							<h1>Big Title Here</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed malesuada sapien. Nulla aliquam orci nec massa hendrerit tincidunt. Donec in sollicitudin lacus. Curabitur et faucibus nulla. Maecenas sit amet semper libero, in iaculis felis. Aliquam erat volutpat. Donec sollicitudin turpis eget tortor tincidunt euismod.</p>
 							<a class="show-more" href="#">SHOW ME MORE</a>
-							
+
 						</div>
 					</div>
-				
+
 				</div>
 				<!-- Controls -->
 				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -41,7 +41,7 @@
 					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 				</a>
-			
+
 			</div>
 		</div>
 		<!-- Site Right Side -->
@@ -57,8 +57,8 @@
 				});
 			</script>
 		</div>
-		<div class="clearfix"></div>	
-	</div>		
+		<div class="clearfix"></div>
+	</div>
 </div>
 
 <div class="featured">
@@ -134,8 +134,8 @@
 									<a class="btn btn-warning" href="<?php echo site_url('c_event/delete_event/'.$event->id); ?>">Delete</a>
 								<?php } else if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {?>
 									<?php
-										$attributes = array('class' => 'form-horizontal');	
-										echo form_open("c_event/join_event/", $attributes); 
+										$attributes = array('class' => 'form-horizontal');
+										echo form_open("c_event/join_event/", $attributes);
 									?>
 										<input type="hidden" name="event_id" value="<?php echo $event->id; ?>">
 										<div class="form-actions" style="display:inline-block">

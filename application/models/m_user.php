@@ -10,7 +10,7 @@ class M_User extends CI_Model {
         $this->load->database();
         date_default_timezone_set("Asia/Jakarta");
     }
-    
+
     function get_all_applicants() {
         $query = "SELECT u.id, u.username, u.password, a.name, a.last_education, a.cv_path, a.pob, a.dob ".
                 "FROM users u JOIN applicants a ON u.role = 'APPLICANT' AND u.applicant_id = a.id";
@@ -34,7 +34,8 @@ class M_User extends CI_Model {
             'is_premium'     => false
         );
 
-        if ($this->upload->data('cv')['file_name'] != null) {
+        $upload_data = $this->upload->data('cv');
+        if ($upload_data['file_name'] != null) {
             $cv_file_name = $this->upload_cv($data['username']);
             $db_data_applicant['cv_path'] = base_url().'uploads/'.$cv_file_name;
         }
@@ -50,7 +51,7 @@ class M_User extends CI_Model {
             'applicant_id'  => $applicant_id
         );
         $this->db->insert('users', $db_data_user);
-        
+
         $this->db->trans_complete();
     }
 
@@ -76,14 +77,16 @@ class M_User extends CI_Model {
             'dob'            => date($data['dob'])
         );
 
-        if ($this->upload->data('cv')['file_name'] != null) {
+
+        $upload_data = $this->upload->data('cv');
+        if ($upload_data['file_name'] != null) {
             $cv_file_name = $this->upload_cv($data['username']);
             $db_data_applicant['cv_path'] = base_url().'uploads/'.$cv_file_name;
         }
 
         $this->db->where('id', $applicant_id);
         $this->db->update('applicants', $db_data_applicant);
-        
+
         $this->db->trans_complete();
     }
 
@@ -92,7 +95,8 @@ class M_User extends CI_Model {
 
         $this->db->where('id', $id);
         $user = $this->db->get('users');
-        $applicant_id = $user->result_array()[0]['applicant_id'];
+        $result_array = $user->result_array();
+        $applicant_id = $result_array[0]['applicant_id'];
 
         $this->db->where('id', $id);
         $this->db->delete('users');
@@ -102,13 +106,13 @@ class M_User extends CI_Model {
 
         $this->db->trans_complete();
     }
-	
-	function login($username, $password){
-		$this->db->select('*');
-		$this->db->from('users');
-		$this->db->where('username', $username);
-		$this->db->where('password', $password);
-		$query = $this->db->get();
+
+    function login($username, $password){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        $query = $this->db->get();
 
         $role = 'NOT_REGISTERED';
 
@@ -125,7 +129,7 @@ class M_User extends CI_Model {
                 $this->session->set_userdata($data);
             }
         }
-	}
+    }
 
     function upload_cv($username) {
         $config = array(

@@ -40,10 +40,11 @@ class Navigation extends CI_Controller {
 				$location = null;
 			switch ($salary) {
 				case 0:
-					$salary_from = null;
-					$salary_to = null;
+					$salary_from = -1;
+					$salary_to = -1;
 					break;
 				case 1:
+					echo 'case 1';
 					$salary_from = 0;
 					$salary_to = 3000000;
 					break;
