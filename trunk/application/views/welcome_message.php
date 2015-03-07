@@ -1,6 +1,6 @@
-<?php print_r($jobs); ?>
+<!-- <?php print_r($jobs); ?> -->
 <?php $this->load->view('layout/header');?>
-		
+
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -17,7 +17,7 @@
 						<h1>Kerja Hebat</h1>
 						<p> Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.(H. Jackson Brown Jr.) </p>
 						<a class="show-more" href="#">SHOW ME MORE</a>
-						
+
 					</div>
 				</div>
 				<div class="item">
@@ -26,7 +26,7 @@
 						<h1>Kerja Hebat</h1>
 						<p> Keep your dreams alive. Understand to achieve anything requires faith and belief in yourself, vision, hard work, determination, and dedication. Remember all things are possible for those who believe. (Gail Devers) </p>
 						<a class="show-more" href="#">SHOW ME MORE</a>
-						
+
 					</div>
 				</div>
 			</div>
@@ -42,8 +42,8 @@
 			</a>
 		</div>
 		<!-- header -->
-	
-	
+
+
 		<div class="instock">
 			<div class="container">
 				<div class="col-md-6 chuk">
@@ -61,10 +61,10 @@
 						</div>
 				</div>
 				<div class="clearfix"> </div>
-			</div>	
+			</div>
 		</div>
 		<!-- instock -->
-		
+
 		<div class="featured">
 			<div class="container">
 				<div class="col-md-9">
@@ -80,7 +80,7 @@
 									<h4>Web Developer</h4>
 									<p>PT. Lalala</p>
 								</div>
-														
+
 								</div>
 							</li>
 							<li>
@@ -90,7 +90,7 @@
 									<div class="biseller-name">
 										<h4>Java Developer</h4>
 										<p>PT. Lilili</p>
-									</div>				
+									</div>
 								</div>
 							</li>
 							<li>
@@ -100,11 +100,11 @@
 									<div class="biseller-name">
 										<h4>C# Developer</h4>
 										<p>PT. Lelele</p>
-									</div>	
+									</div>
 								</div>
 							</li>
 						</ul>
-					</div>	
+					</div>
 					-->
 
 					<script type="text/javascript">
@@ -113,29 +113,29 @@
 								visibleItems: 3,
 								animationSpeed: 1000,
 								autoPlay: false,
-								autoPlaySpeed: 3000,    		
+								autoPlaySpeed: 3000,
 								pauseOnHover: true,
 								enableResponsiveBreakpoints: true,
-								responsiveBreakpoints: { 
-									portrait: { 
+								responsiveBreakpoints: {
+									portrait: {
 										changePoint:480,
 										visibleItems: 1
-									}, 
-									landscape: { 
+									},
+									landscape: {
 										changePoint:640,
 										visibleItems: 2
 									},
-									tablet: { 
+									tablet: {
 										changePoint:768,
 										visibleItems: 3
 									}
 								}
 							});
-							
+
 						});
 					</script>
 					<script type="text/javascript" src="<?php echo base_url();?>resources/js/jquery.flexisel.js"></script>
-					
+
 					<div class="best-seller">
 						<div class="biseller-info">
 							<h3 class="new-models">Recent Careers</h3>
@@ -148,13 +148,17 @@
 											<a href="<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {echo site_url('c_jobs/apply/'.$jobs[$i]->id);} else echo "#";?>"><i class="new"></i></a>
 											<div class="biseller-name">
 												<h4><?php echo $jobs[$i]->company_name;?></h4>
+												<p><?php echo $jobs[$i]->name;?></p>
 												<p><?php echo $jobs[$i]->position;?></p>
+												<p><?php echo $jobs[$i]->position_category;?></p>
+												<p><?php echo $jobs[$i]->salary;?></p>
+												<p><?php echo $jobs[$i]->city;?></p>
 											</div>
 										</div>
 									</li>
-								<?php 
+								<?php
 									endfor;
-								} 
+								}
 								else{
 									for ($i = 0; $i < count($jobs) ; $i++) :
 								?>
@@ -164,42 +168,46 @@
 											<a href="<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {echo site_url('c_jobs/apply/'.$jobs[$i]->id);} else echo "#";?>"><i class="new"></i></a>
 											<div class="biseller-name">
 												<h4><?php echo $jobs[$i]->company_name;?></h4>
+												<p><?php echo $jobs[$i]->name;?></p>
 												<p><?php echo $jobs[$i]->position;?></p>
+												<p><?php echo $jobs[$i]->position_category;?></p>
+												<p><?php echo $jobs[$i]->salary;?></p>
+												<p><?php echo $jobs[$i]->city;?></p>
 											</div>
 										</div>
 									</li>
-								<?php 
+								<?php
 									endfor;
 								}?>
 							</ul>
 						</div>
 					</div>
-					
+
 					<script type="text/javascript">
 						 $(window).load(function() {
 							$("#flexiselDemo1").flexisel({
 								visibleItems: 3,
 								animationSpeed: 1000,
 								autoPlay: false,
-								autoPlaySpeed: 3000,    		
+								autoPlaySpeed: 3000,
 								pauseOnHover: true,
 								enableResponsiveBreakpoints: true,
-								responsiveBreakpoints: { 
-									portrait: { 
+								responsiveBreakpoints: {
+									portrait: {
 										changePoint:480,
 										visibleItems: 1
-									}, 
-									landscape: { 
+									},
+									landscape: {
 										changePoint:640,
 										visibleItems: 2
 									},
-									tablet: { 
+									tablet: {
 										changePoint:768,
 										visibleItems: 3
 									}
 								}
 							});
-							
+
 						});
 					</script>
 					<script type="text/javascript">
@@ -208,28 +216,28 @@
 								visibleItems: 3,
 								animationSpeed: 1000,
 								autoPlay: true,
-								autoPlaySpeed: 3000,    		
+								autoPlaySpeed: 3000,
 								pauseOnHover: true,
 								enableResponsiveBreakpoints: true,
-								responsiveBreakpoints: { 
-									portrait: { 
+								responsiveBreakpoints: {
+									portrait: {
 										changePoint:480,
 										visibleItems: 1
-									}, 
-									landscape: { 
+									},
+									landscape: {
 										changePoint:640,
 										visibleItems: 2
 									},
-									tablet: { 
+									tablet: {
 										changePoint:768,
 										visibleItems: 3
 									}
 								}
 							});
-							
+
 						});
 					</script>
-				
+
 					<div class="best-seller">
 						<div class="biseller-info">
 							<ul id="flexiselDemo2">
@@ -242,66 +250,73 @@
 										<a href="<?php if ($this->session->userdata('username') && $this->session->userdata['role'] == 'APPLICANT') {echo site_url('c_jobs/apply/'.$jobs[$i]->id);} else echo "#";?>"><i class="new"></i></a>
 										<div class="biseller-name">
 											<h4><?php echo $jobs[$i]->company_name;?></h4>
+											<p><?php echo $jobs[$i]->name;?></p>
 											<p><?php echo $jobs[$i]->position;?></p>
+											<p><?php echo $jobs[$i]->position_category;?></p>
+											<p><?php echo $jobs[$i]->salary;?></p>
+											<p><?php echo $jobs[$i]->city;?></p>
 										</div>
 									</div>
 								</li>
-								<?php 
+								<?php
 									endfor;
 									}
 								?>
 							</ul>
 						</div>
 					</div>
-			
-					
+
+
 					<script type="text/javascript" src="<?php echo base_url();?>resources/js/jquery.flexisel.js"></script>
 
 					<div class="clearfix"></div>
 				</div>
-				
+
 				<!-- Site Right Side -->
 				<div class="col-md-3 span_1_of_right">
 					<section  class="sky-form">
 						<div class="product_right">
-							<h3 class="m_2">Categories</h3>
-							<select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"metro"}'>
-								<option value="0">Places</option>
-								<option value="1">DKI Jakarta</option>
-								<option value="2">Jawa Barat</option>
-								<option value="3">Jawa Tengah</option>
-								<option value="4">Jawa Timur</option>
-								<option value="5">Others</option>							
+							<h3 class="m_2">Search Career</h3>
+							<?php echo  form_open("navigation/search");  ?>
+
+							<select name="location" class="dropdown" tabindex="10" data-settings='{"wrapperClass":"metro"}'>
+								<option value="">City</option>
+								<?php foreach($cities as $city): ?>
+								<option value="<?php echo $city->city; ?>"><?php echo $city->city; ?></option>
+								<?php endforeach; ?>
 							</select>
-				  
-							<select class="dropdown" tabindex="50" data-settings='{"wrapperClass":"metro"}'>
+
+							<select name="salary" class="dropdown" tabindex="50" data-settings='{"wrapperClass":"metro"}'>
 								<option value="0">Salary</option>
-								<option value="1">Less than 3.000.000,00</option>
-								<option value="2">3.000.000,00 - 5.000.000,00</option>
-								<option value="3">5.000.000,00 - 7.000.000,00</option>
-								<option value="4">7.000.000,00 - 10.000.000,00</option>
-								<option value="5">More Than 10.000.000,00</option>
-								<option value="6">Negotiable</option>
+								<option value="1">Less than 3.000.000</option>
+								<option value="2">3.000.000 - 5.000.000</option>
+								<option value="3">5.000.000 - 7.000.000</option>
+								<option value="4">7.000.000 - 10.000.000</option>
+								<option value="5">More Than 10.000.000</option>
 							</select>
-				  
-							<select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"metro"}'>
+
+							<!-- <a class="show-more" style="width:100%" href="#">search</a> -->
+							<input type="submit" value="Create Company" name="submit" class="btn btn-danger" style="width:100%">
+							<?php form_close(); ?>
+
+							<!-- <select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"metro"}'>
 								<option value="0">Career</option>
 								<option value="1">Schools</option>
 								<option value="2">Seminar</option>
 								<option value="3">Training</option>
 								<option value="4">Others</option>
 							</select>
-				   
+
 							<select class="dropdown" tabindex="8" data-settings='{"wrapperClass":"metro"}'>
 								<option value="0">Facility</option>
 								<option value="1">Notebook</option>
 								<option value="2">Insurance</option>
 								<option value="3">Sports</option>
-							</select>  
-						</div>		
+							</select>   -->
+						</div>
 					</section>
-                   	 
-					<div class="sellers">
+
+					<!-- <div class="sellers">
 						<h3 class="m_2">Popular</h3>
 						<div class="best">
 							<div class="icon">
@@ -313,7 +328,7 @@
 								<h5>PT. Lilili</h5>
 							</div>
 							<div class="clearfix"></div>
-						</div>	
+						</div>
 						<div class="best">
 							<div class="icon">
 								<img src="<?php echo base_url();?>resources/images/sh1.jpg" class="img-responsive" alt=""/>
@@ -324,7 +339,7 @@
 								<h5>PT. Lululu</h5>
 							</div>
 							<div class="clearfix"></div>
-						</div>	
+						</div>
 						<div class="best">
 							<div class="icon">
 								<img src="<?php echo base_url();?>resources/images/sh1.jpg" class="img-responsive" alt=""/>
@@ -335,11 +350,11 @@
 								<h5>PT. Lalala</h5>
 							</div>
 							<div class="clearfix"></div>
-						</div>	
-					</div>
-					 
+						</div>
+					</div> -->
+
 				</div>
-				<div class="clearfix"></div>	
-			</div>		
+				<div class="clearfix"></div>
+			</div>
 		</div>
 		<?php $this->load->view('layout/footer');?>

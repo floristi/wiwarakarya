@@ -378,7 +378,7 @@ label {
 	-webkit-appearance: none;
 	font-family: 'Open Sans', sans-serif;
 	color: #111111;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	display: inline-block;
 	width: 100%;
 	padding: 10px 20px;

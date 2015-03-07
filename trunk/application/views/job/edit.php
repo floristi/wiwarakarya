@@ -194,7 +194,7 @@
 									<div class="col-sm-10">
 										<select type="text" autofocus name="created_by" class="form-control" autofocus>
                                             <?php foreach($companies as $company): ?>
-                                            <option value="<?php echo $company->id; ?>"><?php echo $company->name; ?></option>
+                                            <option value="<?php echo $company->id; ?>" <?php if($job->created_by == $company->id) echo 'selected=selected'; ?>><?php echo $company->name; ?></option>
                                             <?php endforeach; ?>
                                         </select>
 									</div>

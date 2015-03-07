@@ -49,7 +49,7 @@
                         })();
                     </script>
                     <div class="registration_form">
-                        <h1>Register</h1>
+                        <h1>Edit User</h1>
                         <div id="user-container">
                             <?php 
 									$attributes = array('class' => 'form-horizontal');

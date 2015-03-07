@@ -29,13 +29,12 @@ class M_User extends CI_Model {
         $db_data_applicant = array(
             'name'           => $data['fullname'],
             'last_education' => $data['last_education'],
-            'cv_path'        => base_url().'uploads/'.$cv_file_name,
             'pob'            => $data['pob'],
             'dob'            => date($data['dob']),
             'is_premium'     => false
         );
 
-        if ($this->upload->data('cv')) {
+        if ($this->upload->data('cv')['file_name'] != null) {
             $cv_file_name = $this->upload_cv($data['username']);
             $db_data_applicant['cv_path'] = base_url().'uploads/'.$cv_file_name;
         }
@@ -77,7 +76,7 @@ class M_User extends CI_Model {
             'dob'            => date($data['dob'])
         );
 
-        if ($this->upload->data('cv')) {
+        if ($this->upload->data('cv')['file_name'] != null) {
             $cv_file_name = $this->upload_cv($data['username']);
             $db_data_applicant['cv_path'] = base_url().'uploads/'.$cv_file_name;
         }
@@ -140,7 +139,6 @@ class M_User extends CI_Model {
         $this->upload->initialize($config);
         $this->upload->do_upload('cv');
         $cv_data = $this->upload->data('cv');
-        echo $this->upload->display_errors();
 
         return $cv_data['file_name'];
     }

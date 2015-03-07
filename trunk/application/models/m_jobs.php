@@ -5,13 +5,13 @@ class M_Jobs extends CI_Model {
     public function __construct() {
         parent::__construct();
     }
-    
+
     function get_all_jobs() {
-        $query = "SELECT j.id, j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name ".
+        $query = "SELECT j.id, j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name, c.city as city ".
                  "FROM jobs j JOIN companies c ON j.created_by = c.id";
         return $this->db->query($query)->result();
     }
-	
+
 	 function get_six_jobs() {
         $query = "SELECT j.id, j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name ".
                  "FROM jobs j JOIN companies c ON j.created_by = c.id ORDER BY j.id desc LIMIT 6";
@@ -21,6 +21,22 @@ class M_Jobs extends CI_Model {
     function get_job($id) {
         $this->db->where('id', $id);
         return $this->db->get('jobs')->row();
+    }
+
+    function search_by_location_and_salary($location, $salary_from, $salary_to) {
+        if ($location == null)
+            $location = '%%';
+        if ($salary_from == null || $salary_to == null) {
+            $salary_from = 0;
+            $salary_to = PHP_INT_MAX;
+        }
+
+        $query = "SELECT j.id, j.name, j.position, j.position_category, j.due_date, j.major, j.last_education, j.salary, j.tnc, c.id as company_id, c.name as company_name, c.city ".
+                 "FROM jobs j JOIN companies c ON j.created_by = c.id ".
+                 "WHERE c.city like '".$location."' AND salary >= ".$salary_from." AND salary <= ".$salary_to." ".
+                 "ORDER BY j.id desc";
+
+        return $this->db->query($query)->result();
     }
 
     function create_job() {
@@ -114,7 +130,7 @@ class M_Jobs extends CI_Model {
                  "JOIN companies c ON j.created_by = c.id ".
                  "WHERE a.applicant_id = " . $id;
 
-        return $this->db->query($query)->result();       
+        return $this->db->query($query)->result();
     }
 
     function get_all_applications() {
@@ -125,6 +141,6 @@ class M_Jobs extends CI_Model {
             "JOIN companies c ON j.created_by = c.id ".
             "JOIN applicants ap ON u.applicant_id = ap.id";
 
-        return $this->db->query($query)->result();       
+        return $this->db->query($query)->result();
     }
 }
