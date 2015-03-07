@@ -138,7 +138,7 @@
 					
 					<div class="best-seller">
 						<div class="biseller-info">
-							<h3 class="new-models">Newest Careers</h3>
+							<h3 class="new-models">Recent Careers</h3>
 							<ul id="flexiselDemo1">
 								<?php if(count($jobs) >= 3){?>
 									<?php for ($i = 0; $i < 3 ; $i++) : ?>
@@ -180,7 +180,7 @@
 							$("#flexiselDemo1").flexisel({
 								visibleItems: 3,
 								animationSpeed: 1000,
-								autoPlay: true,
+								autoPlay: false,
 								autoPlaySpeed: 3000,    		
 								pauseOnHover: true,
 								enableResponsiveBreakpoints: true,
