@@ -26,7 +26,7 @@ class M_Jobs extends CI_Model {
     function search_by_location_and_salary($location, $salary_from, $salary_to) {
         if ($location == null)
             $location = '%%';
-        if ($salary_from == null || $salary_to == null) {
+        if ($salary_from == -1 || $salary_to == -1) {
             $salary_from = 0;
             $salary_to = PHP_INT_MAX;
         }
@@ -35,6 +35,8 @@ class M_Jobs extends CI_Model {
                  "FROM jobs j JOIN companies c ON j.created_by = c.id ".
                  "WHERE c.city like '".$location."' AND salary >= ".$salary_from." AND salary <= ".$salary_to." ".
                  "ORDER BY j.id desc";
+
+        echo $query;
 
         return $this->db->query($query)->result();
     }

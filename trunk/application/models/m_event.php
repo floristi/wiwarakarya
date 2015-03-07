@@ -15,13 +15,13 @@ class m_event extends CI_Model {
     }
 
     function get_data_event($id) {
-        return  $this->db->get_where('wiwarakarya.events', array('id' => $id))->row();
+        return  $this->db->get_where('events', array('id' => $id))->row();
     }
 
     function insert_event(){
         $name = $this->input->post('name');
-       
-        $cek = $this->db->where('name', $name)->get('wiwarakarya.events')->num_rows();
+
+        $cek = $this->db->where('name', $name)->get('events')->num_rows();
         if($cek > 0) {
             $confirm = "Event <b>". $name . "</b> already exsist!";
             $this->session->set_userdata('notification', $confirm);
@@ -29,7 +29,7 @@ class m_event extends CI_Model {
         }
 
         $data = array (
-            'name'        => ucwords($name), 
+            'name'        => ucwords($name),
             'description' => ucfirst($this->input->post('description')),
             'location'    => ucwords($this->input->post('location')),
             'quota'       => $this->input->post('quota'),
@@ -45,7 +45,7 @@ class m_event extends CI_Model {
             //'status' => 'TRUE'
         );
 
-        if ($this->db->insert('wiwarakarya.events', $data)) {
+        if ($this->db->insert('events', $data)) {
             $confirm = "Event <b>". $name . "</b> successfully added";
             $this->session->set_userdata('notification', $confirm);
             return;
@@ -59,7 +59,7 @@ class m_event extends CI_Model {
     function edit_event($id) {
         $name = $this->input->post('name');
         $data = array (
-            'name' => ucwords($name), 
+            'name' => ucwords($name),
             'description' => ucfirst($this->input->post('description')),
             'location' => ucwords($this->input->post('location')),
             'quota' => $this->input->post('quota'),
@@ -75,7 +75,7 @@ class m_event extends CI_Model {
         );
 
         $this->db->where('id', $id);
-        if ($this->db->update('wiwarakarya.events', $data)) {
+        if ($this->db->update('events', $data)) {
             $confirm = "Event <b>". $name . "</b> successfully edited";
             $this->session->set_userdata('notification', $confirm);
             return;

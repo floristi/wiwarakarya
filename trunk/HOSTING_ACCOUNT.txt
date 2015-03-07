@@ -1,0 +1,11 @@
+cpanel: http://members.000webhost.com/cpanel.php?accountID=17909435&login_hash=56EonGTIwMAPY2jG
+username: flo_rst@yahoo.com
+pass: Indonesia123
+cpanel wiwara:
+user:  a5734668
+pass: m4m4ngaretta
+
+$mysql_host = "mysql13.000webhost.com";
+$mysql_database = "a5734668_root";
+$mysql_user = "a5734668_root";
+$mysql_password = "Indonesia123";
