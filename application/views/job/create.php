@@ -91,7 +91,7 @@
 										Position:
                                     </label>
 									<div class="col-sm-10">
-										<input name="position" class="form-control" placeholder="name" type="text" required autofocus maxlength="50" required>
+										<input name="position" class="form-control" placeholder="position" type="text" required autofocus maxlength="50" required>
 									</div>
 								</div>
                                 <div class="form-group">
@@ -99,7 +99,7 @@
                                         Position Category:
                                     </label>
 									<div class="col-sm-10">
-										<input name="position_category" placeholder="city" class="form-control" type="text" required autofocus required>
+										<input name="position_category" placeholder="position category" class="form-control" type="text" required autofocus required>
 									</div>
 								</div>
                                 <div class="form-group">
@@ -154,7 +154,7 @@
                                         Major:
                                     </label>
 									<div class="col-sm-10">
-										<input name="major" class="form-control" placeholder="contact name" type="text" required autofocus required>
+										<input name="major" class="form-control" placeholder="major" type="text" required autofocus required>
 									</div>
 								</div>
                                 <div class="form-group">

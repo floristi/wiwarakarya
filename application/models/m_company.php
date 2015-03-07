@@ -13,7 +13,7 @@ class M_company extends CI_Model {
 
     function insert_company(){
         $name = $this->input->post('name');
-       
+
         $cek = $this->db->where('name', $name)->get('wiwarakarya.companies')->num_rows();
         if($cek > 0) {
             $confirm = "Name <b>". $name . "</b> already exsist!";
@@ -22,7 +22,7 @@ class M_company extends CI_Model {
         }
 
         $data = array (
-            'name' => ucwords($name), 
+            'name' => ucwords($name),
             'address' => ucfirst($this->input->post('address')),
             'city' => ucwords($this->input->post('city')),
             'phone' => $this->input->post('phone'),
@@ -30,7 +30,6 @@ class M_company extends CI_Model {
             'email' => $this->input->post('email'),
             'description' => $this->input->post('description'),
             'web' => $this->input->post('web'),
-            'status' => 'TRUE',
             'photo_url' => ''
         );
 
@@ -52,6 +51,11 @@ class M_company extends CI_Model {
         return $query->result();
     }
 
+    function get_cities() {
+        $query = "SELECT DISTINCT city FROM companies";
+        return $this->db->query($query)->result();
+    }
+
     /** supplier_count()
     */
     function company_count(){
@@ -65,7 +69,7 @@ class M_company extends CI_Model {
         $query = $this->db->get('wiwarakarya.companies');
         return $query->result();
     }
-    
+
     function update_data_company($id){
         $name = ucwords($this->input->post('name'));
         $address =  ucfirst($this->input->post('address'));
@@ -75,7 +79,7 @@ class M_company extends CI_Model {
         $description = $this->input->post('description');
         $web = $this->input->post('web');
         $email = $this->input->post('email');
-        
+
         $this->db->where('id', $id);
         //$this->db->where('kota', $kota);
         $idcompany = $this->db->get('wiwarakarya.companies');
@@ -85,25 +89,26 @@ class M_company extends CI_Model {
             $this->session->set_userdata('notification', $confirm);
             return;
         }
-        
+
         $data = array(
             'name' => $name,
             'address' => $address,
             'city' => $city,
-            'phone' => $no_telp,
-            'contact_name' => $contact_person,
+            'phone' => $phone,
+            'contact_name' => $contact_name,
             'description' => $description,
             'web' => $web,
             'email' => $email,
-            'status' => 'TRUE',
-            
+
         );
+
+        print_r($data);
 
         //$id = $idsupplier->row()->id;
         $this->db->where('id', $id);
         $this->db->update('wiwarakarya.companies', $data);
 
-        $confirm = "Data <b>".  $nama ."</b> berhasil di-update";
+        $confirm = "Data <b>".  $name ."</b> berhasil di-update";
         $this->session->set_userdata('notification', $confirm);
         return;
     }
@@ -115,7 +120,7 @@ class M_company extends CI_Model {
         $stat = array('status' => 'false');
         $this->db->where('id', $id);
         $this->db->update('wiwarakarya.companies', $stat);
-        
+
         $confirm = "Company <b>". $name. "</b> telah berhasil di non-aktifkan";
         $this->session->set_userdata('notification', $confirm);
         return;
@@ -125,7 +130,7 @@ class M_company extends CI_Model {
         $name = $this->input->post('name');
         $city = $this->input->post('city');
         $stat = array('status' => 'true');
-        
+
         $this->db->where('id', $id);
         $this->db->update('wiwarakarya.companies', $stat);
 

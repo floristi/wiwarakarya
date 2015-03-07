@@ -1,3 +1,4 @@
+<?php print_r($events); ?>
 <div class="featured">
 	<div class="container" style="padding-top: 3em;">
 		<div class="col-md-9">
@@ -68,7 +69,7 @@
 			<a class="btn btn-primary pull-right buttonpadding" href="<?php echo site_url('c_event/create_event'); ?>">Create Event</a>
 		</div>
 		<?php }?>
-		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"><br/>
 			<?php $i = 1; foreach($events as $event) : ?>
 			  <div class="panel panel-default">
 				<div class="panel-heading" role="tab" id="heading<?php echo $i;?>">

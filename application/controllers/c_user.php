@@ -25,7 +25,7 @@ class C_User extends CI_Controller {
 									$this->input->post('dob-date')
 			);
 			$this->m_user->insert_applicant($user_data);
-			redirect('c_user');
+			redirect('navigation');
 		}
 
 		$data['main_content'] = 'user/add_edit';
@@ -48,7 +48,7 @@ class C_User extends CI_Controller {
 									$this->input->post('dob-date')
 			);
 			$this->m_user->update_applicant($id, $user_data);
-			redirect('c_user');
+			redirect('navigation');
 		}
 
 		$data['user'] = $this->m_user->get_profile_by_id($id);

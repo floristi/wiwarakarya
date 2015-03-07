@@ -87,7 +87,7 @@
 									</div>
 									<div class="col-sm-10">
 										<?php 
-											if($user->cv_path == "0")
+											if($user->cv_path == null)
 												echo "No CV";
 											else{
 												?>

@@ -11,26 +11,26 @@
 						<tr>
 							<td>No</td>
 							<td>Username</td>
-							<td>Password</td>
+							<!-- <td>Password</td> -->
 							<td>Fullname</td>
 							<td>Last Education</td>
 							<td>PoB</td>
 							<td>DoB</td>
 							<td>CV</td>
-							<td>Action</td>
+							<!-- <td>Action</td> -->
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
 							<td>No</td>
 							<td>Username</td>
-							<td>Password</td>
+							<!-- <td>Password</td> -->
 							<td>Fullname</td>
 							<td>Last Education</td>
 							<td>PoB</td>
 							<td>DoB</td>
 							<td>CV</td>
-							<td>Action</td>
+							<!-- <td>Action</td> -->
 						</tr>
 					</tfoot>
 					
@@ -38,8 +38,10 @@
 						<?php $i = 1; foreach($users as $user) : ?>
 						<tr>
 							<td><?php echo $i; ?> </td>
-							<td><?php echo $user->username; ?> </td>
-							<td><?php echo $user->password; ?> </td>
+							<td>
+								<a href="<?php echo site_url('c_user/update/'.$user->id); ?>"><?php echo $user->username; ?></a>
+							</td>
+							<!-- <td><?php echo $user->password; ?> </td> -->
 							<td><?php echo $user->name; ?> </td>
 							<td><?php echo $user->last_education; ?> </td>
 							<td><?php echo $user->pob; ?> </td>
@@ -49,9 +51,9 @@
 									<a href="<?php echo $user->cv_path; ?>">download CV</a>
 								<?php endif; ?>
 							</td>
-							<td>
-								<a href="<?php echo site_url('c_user/update/'.$user->id); ?>">Edit</a>
-								<a href="<?php echo site_url('c_user/delete/'.$user->id); ?>" style="margin-left:10px">Delete</a></td>
+							<!-- <td> -->
+								<!-- <a href="<?php echo site_url('c_user/delete/'.$user->id); ?>" style="margin-left:10px">Delete</a> -->
+							<!-- </td> -->
 						</tr>
 						<?php $i++; endforeach; ?>
 					</tbody>

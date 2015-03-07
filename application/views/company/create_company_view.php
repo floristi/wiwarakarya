@@ -142,14 +142,14 @@
 										<input name="email" placeholder="email" type="email" required autofocus required value="<?php if(isset($email)) echo $email; ?>">
 									</div>
 								</div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="col-sm-2 control-label">
                                         Photo:
                                     </label>
 									<div class="col-sm-10">
 										<input type="file" autofocus name="photo" class="form-control" enctype="multipart/form-data" autofocus>
 									</div>
-                                </div>
+                                </div> -->
 
                                 <div class="pull-right">
 									<div style="display:inline-block">

@@ -13,7 +13,7 @@
 								<th>Address</th>
 								<th>Email</th>
 								<th>Phone Number</th>
-								<th>Status</th>
+								<!-- <th>Status</th> -->
 							</tr>
 						</thead>
 						
@@ -23,21 +23,21 @@
 								<th>Address</th>
 								<th>Email</th>
 								<th>Phone Number</th>
-								<th>Status</th>
+								<!-- <th>Status</th> -->
 							</tr>
 						</tfoot>
 						
 						<tbody>
 							<?php foreach ($query as $row) {
 								$id = $row->id; 
-								$status = $row->status;
+								// $status = $row->status;
 							?>
 								<tr>	
 									<td><a href='#' data-toggle="modal" data-target="#detail-<?php echo $id; ?>"><?php echo $row->name;?></a></td>
 									<td><?php echo $row->address; ?></td>
 									<td><?php echo $row->email; ?></td>
 									<td><?php echo $row->phone; ?></td>
-									<?php 
+									<!-- <?php 
 										if ($status == 't')
 										{ 
 									?>
@@ -52,7 +52,7 @@
 									<?php 
 										$stat = "Tidak Aktif";
 									?>
-									<?php } ?>
+									<?php } ?> -->
 								</tr>
 
 								<div id="detail-<?php echo $id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="detailCompany" aria-hidden="true">
@@ -90,12 +90,12 @@
 													<div class="col-sm-10">
 														<?php echo $row->email; ?>
 													</div>
-													<label class="col-sm-2">
+													<!-- <label class="col-sm-2">
 														Status
 													</label>
 													<div class="col-sm-10">
 														<?php echo $stat; ?>
-													</div>
+													</div> -->
 													
 													
 												</div>
